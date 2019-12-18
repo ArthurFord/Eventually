@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>37606232951-vf9884147rv3i61hhupnt6kl4g1ktr89.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.37606232951-vf9884147rv3i61hhupnt6kl4g1ktr89</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB8vCz7vFuepesBis63Y0R-Jg8BHuQjRPM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>37606232951</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>info.arthurford.Eventually</string>
+	<key>PROJECT_ID</key>
+	<string>eventually-fe775</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eventually-fe775.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:37606232951:ios:aa03e918b3b15be5c48772</string>
+	<key>DATABASE_URL</key>
+	<string>https://eventually-fe775.firebaseio.com</string>
+</dict>
+</plist>
