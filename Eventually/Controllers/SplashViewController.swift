@@ -11,9 +11,16 @@ import Firebase
 
 class SplashViewController: UIViewController {
     
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .label
+        
+        
+        
     }
     
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
@@ -28,3 +35,5 @@ class SplashViewController: UIViewController {
     }
     
 }
+
+

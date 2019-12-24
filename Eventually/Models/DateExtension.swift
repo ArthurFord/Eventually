@@ -10,10 +10,12 @@ import Foundation
 
 extension Date {
     var daysToEvent: DateComponents {
-        let now = Date()
-        let formatter = DateFormatter()
-        formatter.timeZone = .current
         
-        return Calendar.current.dateComponents([.day], from: now, to: self)
+        
+        let now = Calendar.current.startOfDay(for: Date())
+        let then = Calendar.current.startOfDay(for: self)
+        
+        return Calendar.current.dateComponents([.day], from: now, to: then)
+        
     }
 }

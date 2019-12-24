@@ -13,6 +13,7 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventDateLabel: UILabel!
     @IBOutlet weak var daysRemainingLabel: UILabel!
+    @IBOutlet weak var daysLabel: UILabel!
     
     
     

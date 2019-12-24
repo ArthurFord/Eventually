@@ -18,6 +18,7 @@ class NewEventViewController: UIViewController {
     var newEvent = Event()
     
     let db = Firestore.firestore()
+    let calendar = Calendar.current
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,11 @@ class NewEventViewController: UIViewController {
     }
     
     @IBAction func endDatePickerValueChanged(_ sender: UIDatePicker) {
-        newEvent.end = endDatePicker.date
+        let fullDate = endDatePicker.date
+        let fullDateAtNoon = calendar.date(bySetting: .hour, value: 12, of: fullDate)
+        newEvent.end = fullDateAtNoon!
+
+        
     }
     
     
@@ -44,8 +49,8 @@ class NewEventViewController: UIViewController {
             if segue.destination is MasterViewController {
                 newEvent.notes = notesTextView.text ?? ""
                 newEvent.name = nameTextField.text ?? ""
-                let startTimestamp = Timestamp(date: newEvent.start)
-                let endTimestamp = Timestamp(date: newEvent.end)
+                let startTimestamp = Timestamp(date: newEvent.start!)
+                let endTimestamp = Timestamp(date: newEvent.end!)
                 newEvent.userId = Auth.auth().currentUser!.uid
                 print(newEvent.userId)
                 db.collection(K.FStore.collectionName).document("\(newEvent.userId)\(newEvent.name)").setData([

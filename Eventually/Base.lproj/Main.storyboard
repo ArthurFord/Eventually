@@ -48,13 +48,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBQ-QX-j1A">
+                                <rect key="frame" x="68" y="530" width="278" height="81.333333333333371"/>
+                                <string key="text">Sign up with your email address.  We will never spam you or sell your information.  We only use it to save your events to the cloud.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="IaK-BQ-Lek" firstAttribute="top" secondItem="1dR-wh-LTb" secondAttribute="bottom" constant="156" id="5l7-p2-hm1"/>
                             <constraint firstItem="Qrf-vH-XGe" firstAttribute="trailing" secondItem="1dR-wh-LTb" secondAttribute="trailing" constant="89" id="L1Z-6g-5LU"/>
                             <constraint firstItem="IaK-BQ-Lek" firstAttribute="centerX" secondItem="wbE-h6-sST" secondAttribute="centerX" id="Viy-gO-xkI"/>
+                            <constraint firstItem="Qrf-vH-XGe" firstAttribute="trailing" secondItem="XBQ-QX-j1A" secondAttribute="trailing" constant="68" id="dKd-X9-dgb"/>
+                            <constraint firstItem="XBQ-QX-j1A" firstAttribute="leading" secondItem="Qrf-vH-XGe" secondAttribute="leading" constant="68" id="fzT-LF-73G"/>
                             <constraint firstItem="1dR-wh-LTb" firstAttribute="leading" secondItem="Qrf-vH-XGe" secondAttribute="leading" constant="90" id="lXX-pU-sDq"/>
+                            <constraint firstItem="XBQ-QX-j1A" firstAttribute="top" secondItem="IaK-BQ-Lek" secondAttribute="bottom" constant="64.329999999999998" id="w5V-MI-fRx"/>
                             <constraint firstItem="1dR-wh-LTb" firstAttribute="top" secondItem="Qrf-vH-XGe" secondAttribute="top" constant="115" id="yYQ-Ja-WgE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qrf-vH-XGe"/>
@@ -63,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbM-0c-1NF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-777" y="19"/>
+            <point key="canvasLocation" x="-778.26086956521749" y="18.75"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="3mJ-JQ-kmq">
@@ -138,15 +148,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vbB-1S-L9u">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="564"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7cz-eD-6Pf">
+                                <rect key="frame" x="0.0" y="712" width="414" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vbB-1S-L9u" firstAttribute="top" secondItem="XiZ-eC-dCz" secondAttribute="top" id="FZy-0g-NcQ"/>
                             <constraint firstItem="vbB-1S-L9u" firstAttribute="leading" secondItem="XiZ-eC-dCz" secondAttribute="leading" id="G2w-VC-16F"/>
-                            <constraint firstItem="vbB-1S-L9u" firstAttribute="bottom" secondItem="XiZ-eC-dCz" secondAttribute="bottom" id="Hzh-ec-rW1"/>
+                            <constraint firstItem="vbB-1S-L9u" firstAttribute="bottom" secondItem="XiZ-eC-dCz" secondAttribute="bottom" constant="-109" id="Hzh-ec-rW1"/>
                             <constraint firstItem="vbB-1S-L9u" firstAttribute="trailing" secondItem="XiZ-eC-dCz" secondAttribute="trailing" id="j56-MI-6H8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XiZ-eC-dCz"/>
@@ -164,6 +179,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adPlaceholderView" destination="7cz-eD-6Pf" id="1jt-vX-qAD"/>
                         <outlet property="eventsTableView" destination="vbB-1S-L9u" id="ua4-xP-cbl"/>
                         <segue destination="J7a-HF-niN" kind="show" identifier="detailViewSegue" id="ff8-dZ-TD3"/>
                         <segue destination="nCL-XZ-38l" kind="show" identifier="newEventSegue" id="WDc-cw-G5E"/>
@@ -215,7 +231,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zpH-ur-KKD">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="zpH-ur-KKD">
                                 <rect key="frame" x="47" y="246" width="320" height="216"/>
                                 <connections>
                                     <action selector="endDatePickerValueChanged:" destination="nCL-XZ-38l" eventType="valueChanged" id="Ebg-hm-jMw"/>
@@ -479,7 +495,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Nu-uQ-zna">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="0Nu-uQ-zna">
                                 <rect key="frame" x="47" y="246" width="320" height="216"/>
                                 <connections>
                                     <action selector="datePickerChanged:" destination="X1A-Fg-Yup" eventType="valueChanged" id="BSh-AK-Iv6"/>

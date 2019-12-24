@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleMobileAds
 
 class MasterViewController: UIViewController {
     
@@ -17,6 +18,14 @@ class MasterViewController: UIViewController {
     
     @IBOutlet weak var eventsTableView: UITableView!
     
+    @IBOutlet weak var adPlaceholderView: UIView!
+    
+    var nativeAdView: GADUnifiedNativeAdView!
+    
+    var nativeAd = GADUnifiedNativeAd()
+    
+    var adLoader: GADAdLoader!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         eventsTableView.delegate = self
@@ -24,17 +33,27 @@ class MasterViewController: UIViewController {
         registerTableViewCells()
         navigationController?.navigationBar.tintColor = .label
         
+        nativeAdView = (UINib(nibName: K.GADTSmallTemplateViewID, bundle: .main).instantiate(withOwner: nil, options: nil).first as! GADUnifiedNativeAdView)
+        
+        setAdView(nativeAdView)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadEvents()
-        
-        
+        loadAd()
     }
     
     func loadEvents() {
+        let calendar = Calendar.current
+        let cutOffDate = calendar.date(byAdding: .day, value: -1, to: Date())
+        let cutOffDateAtNoon = calendar.date(bySetting: .hour, value: 12, of: cutOffDate!)
+        let cutOffTimestamp = Timestamp(date: cutOffDateAtNoon!)
+        
         db.collection(K.FStore.collectionName)
             .whereField(K.FStore.userId, isEqualTo: Auth.auth().currentUser!.uid)
+            .whereField(K.FStore.end, isGreaterThan: cutOffTimestamp)
+            
             .order(by: K.FStore.end)
             .addSnapshotListener { (querySnapshot, error) in
                 self.arrayOfEvents = []
@@ -42,25 +61,26 @@ class MasterViewController: UIViewController {
                     print("error getting data \(err)")
                 } else {
                     if let snapshotDocuments = querySnapshot?.documents {
+                        
                         for document in snapshotDocuments {
                             let data = document.data()
                             
                             guard let startTimeStamp = data[K.FStore.start] as? Timestamp  else { return }
                             let startDate = startTimeStamp.dateValue()
-                            let start = startDate
                             
                             guard let endTimeStamp = data[K.FStore.end] as? Timestamp  else { return }
                             let endDate = endTimeStamp.dateValue()
-                            let end = endDate
                             
                             guard let name = data[K.FStore.name] as? String else {return}
                             guard let notes = data[K.FStore.notes] as? String else {return}
                             
                             let newEvent = Event()
                             newEvent.name = name
-                            newEvent.end = end
-                            newEvent.start = start
+                            newEvent.end = endDate
+                            newEvent.start = startDate
                             newEvent.notes = notes
+                            
+                            
                             self.arrayOfEvents.append(newEvent)
                             
                             DispatchQueue.main.async {
@@ -70,6 +90,34 @@ class MasterViewController: UIViewController {
                     }
                 }
         }
+        
+    }
+    
+    func loadAd() {
+        
+        var adUnitID = ""
+        let numAdsToLoad = 1
+        
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist"){
+            guard let xml = FileManager.default.contents(atPath: path) else { return }
+            do {
+                let info = try PropertyListDecoder().decode(K.adInfo.self, from: xml)
+                adUnitID = info.adUnitID
+            } catch  {
+                print(error)
+            }
+        }
+        
+        let options = GADMultipleAdsAdLoaderOptions()
+        options.numberOfAds = numAdsToLoad
+        
+        // Prepare the ad loader and start loading ads.
+        adLoader = GADAdLoader(adUnitID: adUnitID,
+                               rootViewController: self,
+                               adTypes: [.unifiedNative],
+                               options: [options])
+        adLoader.delegate = self
+        adLoader.load(GADRequest())
         
     }
     
@@ -104,9 +152,14 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
         
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
-        cell.eventDateLabel.text = dateFormatter.string(from: arrayOfEvents[indexPath.row].end)
-        cell.daysRemainingLabel.text = String(arrayOfEvents[indexPath.row].end.daysToEvent.day!)
-        
+        cell.eventDateLabel.text = dateFormatter.string(from: arrayOfEvents[indexPath.row].end!)
+        let daysRemaining = arrayOfEvents[indexPath.row].end!.daysToEvent.day!
+        cell.daysRemainingLabel.text = String(daysRemaining)
+        if daysRemaining == 1 {
+            cell.daysLabel.text = "day"
+        } else {
+            cell.daysLabel.text = "days"
+        }
         return cell
     }
     
@@ -128,7 +181,7 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
                     print("Error removing document: \(err)")
                 } else {
                     print("deleted Data")
-                    self.loadEvents()
+                    self.arrayOfEvents.remove(at: indexPath.row)
                     DispatchQueue.main.async {
                         self.eventsTableView.reloadData()
                     }
@@ -139,4 +192,68 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
+}
+// MARK: - Ad Loader Delegate
+
+extension MasterViewController: GADUnifiedNativeAdLoaderDelegate {
+    func adLoader(_ adLoader: GADAdLoader,
+                  didFailToReceiveAdWithError error: GADRequestError) {
+        print("\(adLoader) failed with error: \(error.localizedDescription)")
+        
+    }
+    
+    func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
+        print("Received native ad: \(nativeAd)")
+        self.nativeAd = nativeAd
+        self.nativeAd.delegate = self
+        // Add the native ad to the list of native ads.
+        nativeAdView.nativeAd = nativeAd
+        (nativeAdView.headlineView as! UILabel).text = nativeAd.headline
+        (nativeAdView.advertiserView as! UILabel).text = nativeAd.advertiser
+        (nativeAdView.callToActionView as! UIButton).setTitle(nativeAd.callToAction, for: .normal)
+        (nativeAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
+        nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
+        
+    }
+    
+    func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
+    }
+    
+    func setAdView(_ view: GADUnifiedNativeAdView) {
+        adPlaceholderView.addSubview(view)
+        
+        let viewDictionary = ["_nativeAdView": nativeAdView!]
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|",
+                                                                options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|",
+                                                                options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
+    }
+}
+
+// MARK: - GADUnifiedNativeAdDelegate
+extension MasterViewController : GADUnifiedNativeAdDelegate {
+    
+    func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
+        print("\(#function) called")
+    }
+    
+    func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
+        print("\(#function) called")
+    }
+    
+    func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
+        print("\(#function) called")
+    }
+    
+    func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+        print("\(#function) called")
+    }
+    
+    func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+        print("\(#function) called")
+    }
+    
+    func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
+        print("\(#function) called")
+    }
 }

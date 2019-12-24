@@ -24,9 +24,9 @@ class DetailViewController: UIViewController {
         if let eventToLoad = event {
             let dateFormatter = DateFormatter()
             dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
-            dateLabel.text = dateFormatter.string(from: eventToLoad.end)
+            dateLabel.text = dateFormatter.string(from: eventToLoad.end!)
             navigationController?.title = eventToLoad.name
-            daysRemainingLabel.text = String(eventToLoad.end.daysToEvent.day!)
+            daysRemainingLabel.text = String(eventToLoad.end!.daysToEvent.day!)
             notesTextView.text = eventToLoad.notes
         }
         

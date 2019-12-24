@@ -11,6 +11,7 @@ import Foundation
 struct K {
     
     static let longDate = "EEE MMM dd YYYY"
+    static let GADTSmallTemplateViewID = "GADTSmallTemplateView"
     
     struct Segues {
         static let signInSegueID = "signInSegue"
@@ -43,5 +44,9 @@ struct K {
     struct table {
         static let nibName = "EventTableViewCell"
         static let reuseId = "EventCell"
+    }
+    
+    struct adInfo: Codable {
+        var adUnitID: String
     }
 }

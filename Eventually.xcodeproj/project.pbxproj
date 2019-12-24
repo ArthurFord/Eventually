@@ -16,7 +16,6 @@
 		CE3E33B523A65827003C2744 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3E33B323A65827003C2744 /* LaunchScreen.storyboard */; };
 		CE3E33BF23A65948003C2744 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33BE23A65948003C2744 /* MasterViewController.swift */; };
 		CE3E33C123A65995003C2744 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33C023A65995003C2744 /* Event.swift */; };
-		CE3E33C323A65B1F003C2744 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3E33C223A65B1F003C2744 /* GoogleService-Info.plist */; };
 		CE3E33CD23A67027003C2744 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33CB23A67027003C2744 /* EventTableViewCell.swift */; };
 		CE3E33CE23A67027003C2744 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3E33CC23A67027003C2744 /* EventTableViewCell.xib */; };
 		CE3E33D023A67661003C2744 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33CF23A67661003C2744 /* DateExtension.swift */; };
@@ -26,6 +25,15 @@
 		CE3E33D823A7A5C0003C2744 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D723A7A5C0003C2744 /* K.swift */; };
 		CE3E33DA23A7A7CB003C2744 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */; };
 		CE3E33DC23A7A896003C2744 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33DB23A7A896003C2744 /* SignUpViewController.swift */; };
+		CE89A69F23AF8F6100B70F39 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69323AF8F6100B70F39 /* LICENSE */; };
+		CE89A6A023AF8F6100B70F39 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69423AF8F6100B70F39 /* README.md */; };
+		CE89A6A123AF8F6100B70F39 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69523AF8F6100B70F39 /* CONTRIBUTING.md */; };
+		CE89A6A223AF8F6100B70F39 /* GADTMediumTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69723AF8F6100B70F39 /* GADTMediumTemplateView.xib */; };
+		CE89A6A323AF8F6100B70F39 /* GADTSmallTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89A69A23AF8F6100B70F39 /* GADTSmallTemplateView.m */; };
+		CE89A6A423AF8F6100B70F39 /* GADTSmallTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69B23AF8F6100B70F39 /* GADTSmallTemplateView.xib */; };
+		CE89A6A523AF8F6100B70F39 /* GADTTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89A69C23AF8F6100B70F39 /* GADTTemplateView.m */; };
+		CE89A6A623AF8F6100B70F39 /* GADTMediumTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89A69D23AF8F6100B70F39 /* GADTMediumTemplateView.m */; };
+		CE89A6A823B2359D00B70F39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE89A6A723B2359C00B70F39 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +50,6 @@
 		CE3E33B623A65827003C2744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3E33BE23A65948003C2744 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		CE3E33C023A65995003C2744 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		CE3E33C223A65B1F003C2744 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE3E33CB23A67027003C2744 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		CE3E33CC23A67027003C2744 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E33CF23A67661003C2744 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -52,6 +59,18 @@
 		CE3E33D723A7A5C0003C2744 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE3E33DB23A7A896003C2744 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CE89A69323AF8F6100B70F39 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CE89A69423AF8F6100B70F39 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CE89A69523AF8F6100B70F39 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		CE89A69723AF8F6100B70F39 /* GADTMediumTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTMediumTemplateView.xib; sourceTree = "<group>"; };
+		CE89A69823AF8F6100B70F39 /* GADTTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTTemplateView.h; sourceTree = "<group>"; };
+		CE89A69923AF8F6100B70F39 /* GADTMediumTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTMediumTemplateView.h; sourceTree = "<group>"; };
+		CE89A69A23AF8F6100B70F39 /* GADTSmallTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTSmallTemplateView.m; sourceTree = "<group>"; };
+		CE89A69B23AF8F6100B70F39 /* GADTSmallTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTSmallTemplateView.xib; sourceTree = "<group>"; };
+		CE89A69C23AF8F6100B70F39 /* GADTTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTTemplateView.m; sourceTree = "<group>"; };
+		CE89A69D23AF8F6100B70F39 /* GADTMediumTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTMediumTemplateView.m; sourceTree = "<group>"; };
+		CE89A69E23AF8F6100B70F39 /* GADTSmallTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTSmallTemplateView.h; sourceTree = "<group>"; };
+		CE89A6A723B2359C00B70F39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +132,8 @@
 				CE3E33B123A65827003C2744 /* Assets.xcassets */,
 				CE3E33B323A65827003C2744 /* LaunchScreen.storyboard */,
 				CE3E33B623A65827003C2744 /* Info.plist */,
-				CE3E33C223A65B1F003C2744 /* GoogleService-Info.plist */,
+				CE89A6A723B2359C00B70F39 /* GoogleService-Info.plist */,
+				CE89A69223AF8F6100B70F39 /* googleads-mobile-ios-native-templates-master */,
 			);
 			path = Eventually;
 			sourceTree = "<group>";
@@ -149,6 +169,32 @@
 				CE3E33CC23A67027003C2744 /* EventTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CE89A69223AF8F6100B70F39 /* googleads-mobile-ios-native-templates-master */ = {
+			isa = PBXGroup;
+			children = (
+				CE89A69323AF8F6100B70F39 /* LICENSE */,
+				CE89A69423AF8F6100B70F39 /* README.md */,
+				CE89A69523AF8F6100B70F39 /* CONTRIBUTING.md */,
+				CE89A69623AF8F6100B70F39 /* nativetemplates */,
+			);
+			path = "googleads-mobile-ios-native-templates-master";
+			sourceTree = "<group>";
+		};
+		CE89A69623AF8F6100B70F39 /* nativetemplates */ = {
+			isa = PBXGroup;
+			children = (
+				CE89A69723AF8F6100B70F39 /* GADTMediumTemplateView.xib */,
+				CE89A69823AF8F6100B70F39 /* GADTTemplateView.h */,
+				CE89A69923AF8F6100B70F39 /* GADTMediumTemplateView.h */,
+				CE89A69A23AF8F6100B70F39 /* GADTSmallTemplateView.m */,
+				CE89A69B23AF8F6100B70F39 /* GADTSmallTemplateView.xib */,
+				CE89A69C23AF8F6100B70F39 /* GADTTemplateView.m */,
+				CE89A69D23AF8F6100B70F39 /* GADTMediumTemplateView.m */,
+				CE89A69E23AF8F6100B70F39 /* GADTSmallTemplateView.h */,
+			);
+			path = nativetemplates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,10 +257,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE89A6A423AF8F6100B70F39 /* GADTSmallTemplateView.xib in Resources */,
+				CE89A69F23AF8F6100B70F39 /* LICENSE in Resources */,
 				CE3E33CE23A67027003C2744 /* EventTableViewCell.xib in Resources */,
 				CE3E33B523A65827003C2744 /* LaunchScreen.storyboard in Resources */,
-				CE3E33C323A65B1F003C2744 /* GoogleService-Info.plist in Resources */,
+				CE89A6A023AF8F6100B70F39 /* README.md in Resources */,
 				CE3E33B223A65827003C2744 /* Assets.xcassets in Resources */,
+				CE89A6A123AF8F6100B70F39 /* CONTRIBUTING.md in Resources */,
+				CE89A6A223AF8F6100B70F39 /* GADTMediumTemplateView.xib in Resources */,
+				CE89A6A823B2359D00B70F39 /* GoogleService-Info.plist in Resources */,
 				CE3E33B023A65822003C2744 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,9 +325,12 @@
 				CE3E33D823A7A5C0003C2744 /* K.swift in Sources */,
 				CE3E33D023A67661003C2744 /* DateExtension.swift in Sources */,
 				CE3E33D423A6A1BC003C2744 /* NewEventViewController.swift in Sources */,
+				CE89A6A323AF8F6100B70F39 /* GADTSmallTemplateView.m in Sources */,
+				CE89A6A523AF8F6100B70F39 /* GADTTemplateView.m in Sources */,
 				CE3E33A723A65822003C2744 /* AppDelegate.swift in Sources */,
 				CE3E33DC23A7A896003C2744 /* SignUpViewController.swift in Sources */,
 				CE3E33A923A65822003C2744 /* SceneDelegate.swift in Sources */,
+				CE89A6A623AF8F6100B70F39 /* GADTMediumTemplateView.m in Sources */,
 				CE3E33D623A79F06003C2744 /* SplashViewController.swift in Sources */,
 				CE3E33CD23A67027003C2744 /* EventTableViewCell.swift in Sources */,
 				CE3E33BF23A65948003C2744 /* MasterViewController.swift in Sources */,

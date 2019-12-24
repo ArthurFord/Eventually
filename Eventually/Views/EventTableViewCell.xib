@@ -46,8 +46,10 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="daysLabel" destination="Qcf-Ba-qqv" id="2nZ-54-mOY"/>
                 <outlet property="daysRemainingLabel" destination="AbP-RQ-dby" id="pn1-Ir-xUm"/>
                 <outlet property="eventDateLabel" destination="uIM-Lz-LFk" id="Oqb-5T-Ihr"/>
                 <outlet property="eventNameLabel" destination="Juq-rH-7LL" id="Avk-kW-n4T"/>
