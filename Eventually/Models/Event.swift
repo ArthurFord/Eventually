@@ -10,8 +10,8 @@ import Foundation
 
 class Event {
     var name: String = ""
-    var start = Calendar.current.date(bySetting: .hour, value: 12, of: Date())
-    var end = Calendar.current.date(bySetting: .hour, value: 12, of: Date())
+    var start = Calendar.current.startOfDay(for: Date())
+    var end = Calendar.current.startOfDay(for: Date())
     var notes: String = ""
     var userId: String = ""
 }

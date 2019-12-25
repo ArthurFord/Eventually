@@ -32,7 +32,7 @@ class EditEventViewController: UIViewController {
             originalEvent = eventToLoad
             nameTextField.text = eventToLoad.name
             notesTextView.text = eventToLoad.notes
-            datePicker.setDate(eventToLoad.end!, animated: true)
+            datePicker.setDate(eventToLoad.end, animated: true)
             print(eventIndex)
         }
     }
@@ -70,8 +70,8 @@ class EditEventViewController: UIViewController {
                 
                 newEvent!.notes = notesTextView.text ?? ""
                 newEvent!.name = nameTextField.text ?? ""
-                let startTimestamp = Timestamp(date: newEvent!.start!)
-                let endTimestamp = Timestamp(date: newEvent!.end!)
+                let startTimestamp = Timestamp(date: newEvent!.start)
+                let endTimestamp = Timestamp(date: newEvent!.end)
                 newEvent!.userId = Auth.auth().currentUser!.uid
                 
                 db.collection(K.FStore.collectionName).document("\(newEvent!.userId)\(newEvent!.name)").setData([

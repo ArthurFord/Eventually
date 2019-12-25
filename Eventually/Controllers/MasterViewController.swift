@@ -46,9 +46,9 @@ class MasterViewController: UIViewController {
     
     func loadEvents() {
         let calendar = Calendar.current
-        let cutOffDate = calendar.date(byAdding: .day, value: -1, to: Date())
-        let cutOffDateAtNoon = calendar.date(bySetting: .hour, value: 12, of: cutOffDate!)
-        let cutOffTimestamp = Timestamp(date: cutOffDateAtNoon!)
+        let cutOffDate = calendar.date(byAdding: .day, value: -1, to: Date())!
+        let cutOffDateAtNoon = calendar.startOfDay(for: cutOffDate)
+        let cutOffTimestamp = Timestamp(date: cutOffDateAtNoon)
         
         db.collection(K.FStore.collectionName)
             .whereField(K.FStore.userId, isEqualTo: Auth.auth().currentUser!.uid)
@@ -152,8 +152,8 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
         
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
-        cell.eventDateLabel.text = dateFormatter.string(from: arrayOfEvents[indexPath.row].end!)
-        let daysRemaining = arrayOfEvents[indexPath.row].end!.daysToEvent.day!
+        cell.eventDateLabel.text = dateFormatter.string(from: arrayOfEvents[indexPath.row].end)
+        let daysRemaining = arrayOfEvents[indexPath.row].end.daysToEvent.day!
         cell.daysRemainingLabel.text = String(daysRemaining)
         if daysRemaining == 1 {
             cell.daysLabel.text = "day"
