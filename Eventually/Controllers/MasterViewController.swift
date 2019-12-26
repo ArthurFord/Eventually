@@ -51,7 +51,7 @@ class MasterViewController: UIViewController {
         let cutOffDate = calendar.date(byAdding: .day, value: -1, to: Date())!
         let cutOffDateStored = calendar.startOfDay(for: cutOffDate)
         
-        print("cutoff = \(cutOffDateStored)")
+        
         db.collection(K.FStore.collectionName)
             .whereField(K.FStore.userId, isEqualTo: Auth.auth().currentUser!.uid)
             .order(by: K.FStore.end)
@@ -79,12 +79,11 @@ class MasterViewController: UIViewController {
                             newEvent.end = endDate
                             newEvent.start = startDate
                             newEvent.notes = notes
-                            print("end = \(newEvent.end)")
+                            
                             let startOfDayEndDate = calendar.startOfDay(for: newEvent.end)
                             if startOfDayEndDate > cutOffDateStored {
                                 self.arrayOfEvents.append(newEvent)
                             }
-                            
                             
                             DispatchQueue.main.async {
                                 self.eventsTableView.reloadData()

@@ -35,6 +35,11 @@ class SignUpViewController: UIViewController {
             alert.addAction(.init(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
+            do {
+                try addCredentials(account: email, password: password1)
+            } catch  {
+                print(error)
+            }
             
             
             Auth.auth().createUser(withEmail: email, password: password1) { authResult, error in
@@ -49,10 +54,22 @@ class SignUpViewController: UIViewController {
                         self.navigationController?.navigationBar.prefersLargeTitles = true
                         vc.title = "Events"
                         self.navigationController?.pushViewController(vc, animated: true)
-                        //present(vc, animated: true, completion: nil)
                     }
                 }
             }
         }
+    }
+    
+        func addCredentials(account: String, password: String) throws {
+        let credentials = Credentials(username: account, password: password)
+        let passwordFinal = credentials.password.data(using: String.Encoding.utf8)!
+        let query: [String: Any] = [    kSecClass as String: kSecClassGenericPassword,
+                                        kSecAttrAccount as String: credentials.username,
+                                        kSecAttrLabel as String: K.authLabel,
+                                        kSecValueData as String: passwordFinal]
+        
+        let status = SecItemAdd(query as CFDictionary, nil)
+        print(status.description)
+        guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 }

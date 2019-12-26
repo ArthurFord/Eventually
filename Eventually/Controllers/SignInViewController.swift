@@ -16,10 +16,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -29,12 +28,14 @@ class SignInViewController: UIViewController {
     
     @IBAction func SignInButtonTapped(_ sender: UIButton) {
         
-        guard var email = emailTextField.text else {return}
-        guard var password = passwordTextField.text else {return}
+        guard let email = emailTextField.text else {return}
+        guard let password = passwordTextField.text else {return}
         
-        email = "1@2.com"
-        password = "qwerty"
-        
+        do {
+            try addCredentials(account: email, password: password)
+        } catch  {
+            print(error)
+        }
         
         Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
             if let err = error {
@@ -48,10 +49,22 @@ class SignInViewController: UIViewController {
                     self.navigationController?.navigationBar.prefersLargeTitles = true
                     vc.title = "Events"
                     self.navigationController?.pushViewController(vc, animated: true)
-                    
                 }
             }
         }
+    }
+    
+    func addCredentials(account: String, password: String) throws {
+        let credentials = Credentials(username: account, password: password)
+        let passwordFinal = credentials.password.data(using: String.Encoding.utf8)!
+        let query: [String: Any] = [    kSecClass as String: kSecClassGenericPassword,
+                                        kSecAttrAccount as String: credentials.username,
+                                        kSecAttrLabel as String: K.authLabel,
+                                        kSecValueData as String: passwordFinal]
+        
+        let status = SecItemAdd(query as CFDictionary, nil)
+        print(status.description)
+        guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 }
 

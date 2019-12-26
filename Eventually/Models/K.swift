@@ -12,6 +12,7 @@ struct K {
     
     static let longDate = "EEE MMM dd YYYY"
     static let GADTSmallTemplateViewID = "GADTSmallTemplateView"
+    static let authLabel = "authLabel"
     
     struct Segues {
         static let signInSegueID = "signInSegue"
@@ -23,6 +24,7 @@ struct K {
         static let editEventSegueID = "editEventSegue"
         static let unwindToEventsID = "unwindToEvents"
         static let unwindToRootID = "unwindToRoot"
+        static let straightToEventsAfterAuthID = "straightToEventsAfterAuth"
     }
     
     struct FStore {
@@ -49,4 +51,16 @@ struct K {
     struct adInfo: Codable {
         var adUnitID: String
     }
+
+}
+
+struct Credentials {
+    var username: String
+    var password: String
+}
+
+enum KeychainError: Error {
+    case noPassword
+    case unexpectedPasswordData
+    case unhandledError(status: OSStatus)
 }
