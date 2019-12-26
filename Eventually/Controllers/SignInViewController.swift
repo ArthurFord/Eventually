@@ -63,7 +63,6 @@ class SignInViewController: UIViewController {
                                         kSecValueData as String: passwordFinal]
         
         let status = SecItemAdd(query as CFDictionary, nil)
-        print(status.description)
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 }

@@ -15,7 +15,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password1TextField: UITextField!
     @IBOutlet weak var password2TextField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -69,7 +68,6 @@ class SignUpViewController: UIViewController {
                                         kSecValueData as String: passwordFinal]
         
         let status = SecItemAdd(query as CFDictionary, nil)
-        print(status.description)
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 }

@@ -20,25 +20,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="355" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Juq-rH-7LL">
-                                <rect key="frame" x="15" y="14" width="88.5" height="21"/>
+                                <rect key="frame" x="15" y="16" width="88.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu Oct 31, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="uIM-Lz-LFk">
-                                <rect key="frame" x="15" y="51" width="126.5" height="21"/>
+                                <rect key="frame" x="15" y="53" width="126.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Qcf-Ba-qqv">
-                                <rect key="frame" x="291" y="53" width="28.5" height="16"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-RQ-dby">
-                                <rect key="frame" x="284" y="14" width="42.5" height="21"/>
+                                <rect key="frame" x="284" y="16" width="42.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42.5" id="VOE-Tb-iZW"/>
                                 </constraints>
@@ -46,16 +40,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Qcf-Ba-qqv">
+                                <rect key="frame" x="291" y="56" width="28.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.51278895547945202" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Juq-rH-7LL" firstAttribute="leading" secondItem="76b-2i-AKM" secondAttribute="leading" constant="15" id="04t-2x-nNt"/>
-                            <constraint firstItem="Juq-rH-7LL" firstAttribute="top" secondItem="76b-2i-AKM" secondAttribute="top" constant="14" id="2Ci-MS-kIb"/>
-                            <constraint firstAttribute="bottom" secondItem="Qcf-Ba-qqv" secondAttribute="bottom" constant="21" id="EkO-M6-MOT"/>
+                            <constraint firstItem="Juq-rH-7LL" firstAttribute="top" secondItem="76b-2i-AKM" secondAttribute="top" constant="16" id="2Ci-MS-kIb"/>
+                            <constraint firstAttribute="bottom" secondItem="Qcf-Ba-qqv" secondAttribute="bottom" constant="18" id="EkO-M6-MOT"/>
                             <constraint firstItem="uIM-Lz-LFk" firstAttribute="leading" secondItem="76b-2i-AKM" secondAttribute="leading" constant="15" id="NZk-1V-sxM"/>
                             <constraint firstAttribute="trailing" secondItem="Qcf-Ba-qqv" secondAttribute="trailing" constant="35.5" id="Vd7-mP-fiX"/>
-                            <constraint firstItem="AbP-RQ-dby" firstAttribute="top" secondItem="76b-2i-AKM" secondAttribute="top" constant="14" id="jEm-6n-HYy"/>
-                            <constraint firstAttribute="bottom" secondItem="uIM-Lz-LFk" secondAttribute="bottom" constant="18" id="v4D-g9-vGt"/>
+                            <constraint firstItem="AbP-RQ-dby" firstAttribute="top" secondItem="76b-2i-AKM" secondAttribute="top" constant="16" id="jEm-6n-HYy"/>
+                            <constraint firstAttribute="bottom" secondItem="uIM-Lz-LFk" secondAttribute="bottom" constant="16" id="v4D-g9-vGt"/>
                             <constraint firstAttribute="trailing" secondItem="AbP-RQ-dby" secondAttribute="trailing" constant="28.5" id="xqU-9y-oiU"/>
                         </constraints>
                     </view>
