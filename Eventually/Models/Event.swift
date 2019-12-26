@@ -10,7 +10,7 @@ import Foundation
 
 class Event {
     var name: String = ""
-    var start = Calendar.current.startOfDay(for: Date())
+    var start =  Date()
     var end = Calendar.current.startOfDay(for: Date())
     var notes: String = ""
     var userId: String = ""

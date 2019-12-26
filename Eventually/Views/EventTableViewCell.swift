@@ -15,13 +15,15 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var daysRemainingLabel: UILabel!
     @IBOutlet weak var daysLabel: UILabel!
     
+    @IBOutlet weak var cellContentView: UIView!
+    
     
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        cellContentView.layer.cornerRadius = cellContentView.frame.height / 4
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

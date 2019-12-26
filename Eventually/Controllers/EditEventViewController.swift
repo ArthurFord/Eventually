@@ -39,8 +39,8 @@ class EditEventViewController: UIViewController {
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         let fullDate = datePicker.date
-        let fullDateAtNoon = calendar.date(bySetting: .hour, value: 12, of: fullDate)
-        newEvent?.end = fullDateAtNoon!
+        let fullDateStored = calendar.startOfDay(for: fullDate)
+        newEvent?.end = fullDateStored
     }
     
     

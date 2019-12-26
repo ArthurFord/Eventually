@@ -147,8 +147,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vbB-1S-L9u">
-                                <rect key="frame" x="0.0" y="140" width="414" height="564"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vbB-1S-L9u">
+                                <rect key="frame" x="20" y="140" width="374" height="564"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cz-eD-6Pf">
@@ -159,12 +159,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vbB-1S-L9u" firstAttribute="top" secondItem="XiZ-eC-dCz" secondAttribute="top" id="FZy-0g-NcQ"/>
-                            <constraint firstItem="vbB-1S-L9u" firstAttribute="leading" secondItem="XiZ-eC-dCz" secondAttribute="leading" id="G2w-VC-16F"/>
+                            <constraint firstItem="vbB-1S-L9u" firstAttribute="leading" secondItem="XiZ-eC-dCz" secondAttribute="leading" constant="20" id="G2w-VC-16F"/>
                             <constraint firstItem="vbB-1S-L9u" firstAttribute="bottom" secondItem="XiZ-eC-dCz" secondAttribute="bottom" constant="-109" id="Hzh-ec-rW1"/>
-                            <constraint firstItem="7cz-eD-6Pf" firstAttribute="trailing" secondItem="vbB-1S-L9u" secondAttribute="trailing" id="Z8i-o6-vaa"/>
+                            <constraint firstItem="7cz-eD-6Pf" firstAttribute="trailing" secondItem="vbB-1S-L9u" secondAttribute="trailing" constant="20" id="Z8i-o6-vaa"/>
                             <constraint firstItem="7cz-eD-6Pf" firstAttribute="top" secondItem="vbB-1S-L9u" secondAttribute="bottom" constant="8" id="eXq-lL-vnS"/>
-                            <constraint firstItem="7cz-eD-6Pf" firstAttribute="leading" secondItem="vbB-1S-L9u" secondAttribute="leading" id="gWJ-et-cME"/>
-                            <constraint firstItem="vbB-1S-L9u" firstAttribute="trailing" secondItem="XiZ-eC-dCz" secondAttribute="trailing" id="j56-MI-6H8"/>
+                            <constraint firstItem="7cz-eD-6Pf" firstAttribute="leading" secondItem="vbB-1S-L9u" secondAttribute="leading" constant="-20" id="gWJ-et-cME"/>
+                            <constraint firstItem="vbB-1S-L9u" firstAttribute="trailing" secondItem="XiZ-eC-dCz" secondAttribute="trailing" constant="-20" id="j56-MI-6H8"/>
                             <constraint firstItem="7cz-eD-6Pf" firstAttribute="bottom" secondItem="XiZ-eC-dCz" secondAttribute="bottom" id="l1U-dj-9o6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XiZ-eC-dCz"/>

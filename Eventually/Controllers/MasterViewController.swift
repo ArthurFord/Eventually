@@ -31,6 +31,8 @@ class MasterViewController: UIViewController {
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
         registerTableViewCells()
+        
+        
         navigationController?.navigationBar.tintColor = .label
         
         nativeAdView = (UINib(nibName: K.GADTSmallTemplateViewID, bundle: .main).instantiate(withOwner: nil, options: nil).first as! GADUnifiedNativeAdView)
@@ -47,13 +49,11 @@ class MasterViewController: UIViewController {
     func loadEvents() {
         let calendar = Calendar.current
         let cutOffDate = calendar.date(byAdding: .day, value: -1, to: Date())!
-        let cutOffDateAtNoon = calendar.startOfDay(for: cutOffDate)
-        let cutOffTimestamp = Timestamp(date: cutOffDateAtNoon)
+        let cutOffDateStored = calendar.startOfDay(for: cutOffDate)
         
+        print("cutoff = \(cutOffDateStored)")
         db.collection(K.FStore.collectionName)
             .whereField(K.FStore.userId, isEqualTo: Auth.auth().currentUser!.uid)
-            .whereField(K.FStore.end, isGreaterThan: cutOffTimestamp)
-            
             .order(by: K.FStore.end)
             .addSnapshotListener { (querySnapshot, error) in
                 self.arrayOfEvents = []
@@ -79,9 +79,12 @@ class MasterViewController: UIViewController {
                             newEvent.end = endDate
                             newEvent.start = startDate
                             newEvent.notes = notes
+                            print("end = \(newEvent.end)")
+                            let startOfDayEndDate = calendar.startOfDay(for: newEvent.end)
+                            if startOfDayEndDate > cutOffDateStored {
+                                self.arrayOfEvents.append(newEvent)
+                            }
                             
-                            
-                            self.arrayOfEvents.append(newEvent)
                             
                             DispatchQueue.main.async {
                                 self.eventsTableView.reloadData()
@@ -144,6 +147,8 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfEvents.count
     }
+
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.table.reuseId, for: indexPath) as! EventTableViewCell
