@@ -25,6 +25,8 @@
 		CE3E33D823A7A5C0003C2744 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D723A7A5C0003C2744 /* K.swift */; };
 		CE3E33DA23A7A7CB003C2744 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */; };
 		CE3E33DC23A7A896003C2744 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33DB23A7A896003C2744 /* SignUpViewController.swift */; };
+		CE85634123B560D6000241C2 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85634023B560D6000241C2 /* DatePickerViewController.swift */; };
+		CE85634323B5759F000241C2 /* SetReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85634223B5759F000241C2 /* SetReminderViewController.swift */; };
 		CE89A69F23AF8F6100B70F39 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69323AF8F6100B70F39 /* LICENSE */; };
 		CE89A6A023AF8F6100B70F39 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69423AF8F6100B70F39 /* README.md */; };
 		CE89A6A123AF8F6100B70F39 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = CE89A69523AF8F6100B70F39 /* CONTRIBUTING.md */; };
@@ -59,6 +61,8 @@
 		CE3E33D723A7A5C0003C2744 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE3E33DB23A7A896003C2744 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CE85634023B560D6000241C2 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		CE85634223B5759F000241C2 /* SetReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetReminderViewController.swift; sourceTree = "<group>"; };
 		CE89A69323AF8F6100B70F39 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CE89A69423AF8F6100B70F39 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CE89A69523AF8F6100B70F39 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				CE3E33D523A79F06003C2744 /* SplashViewController.swift */,
 				CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */,
 				CE3E33DB23A7A896003C2744 /* SignUpViewController.swift */,
+				CE85634023B560D6000241C2 /* DatePickerViewController.swift */,
+				CE85634223B5759F000241C2 /* SetReminderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3E33DA23A7A7CB003C2744 /* SignInViewController.swift in Sources */,
+				CE85634323B5759F000241C2 /* SetReminderViewController.swift in Sources */,
 				CE16631123A92EBE00455F8C /* EditEventViewController.swift in Sources */,
 				CE3E33C123A65995003C2744 /* Event.swift in Sources */,
 				CE3E33D823A7A5C0003C2744 /* K.swift in Sources */,
@@ -331,6 +338,7 @@
 				CE3E33DC23A7A896003C2744 /* SignUpViewController.swift in Sources */,
 				CE3E33A923A65822003C2744 /* SceneDelegate.swift in Sources */,
 				CE89A6A623AF8F6100B70F39 /* GADTMediumTemplateView.m in Sources */,
+				CE85634123B560D6000241C2 /* DatePickerViewController.swift in Sources */,
 				CE3E33D623A79F06003C2744 /* SplashViewController.swift in Sources */,
 				CE3E33CD23A67027003C2744 /* EventTableViewCell.swift in Sources */,
 				CE3E33BF23A65948003C2744 /* MasterViewController.swift in Sources */,

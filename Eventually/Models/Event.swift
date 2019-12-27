@@ -14,4 +14,6 @@ class Event {
     var end = Calendar.current.startOfDay(for: Date())
     var notes: String = ""
     var userId: String = ""
+    var reminder: Date?
+    var reminderOn = false
 }

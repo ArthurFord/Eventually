@@ -37,6 +37,8 @@ class DetailViewController: UIViewController {
            view.endEditing(true)
        }
     
+
+    
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         if let vc = storyboard?.instantiateViewController(identifier: K.VcId.editEventVC) as? EditEventViewController {
             vc.newEvent = event!
@@ -44,6 +46,7 @@ class DetailViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
     
     
     

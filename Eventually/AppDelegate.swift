@@ -12,14 +12,23 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let notificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
        
+        let options: UNAuthorizationOptions = [.alert, .badge]
+        
+        notificationCenter.requestAuthorization(options: options) {
+            (didAllow, error) in
+            if !didAllow {
+                print("User has declined notifications")
+            }
+        }
+        
         return true
     }
 

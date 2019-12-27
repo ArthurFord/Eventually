@@ -51,10 +51,7 @@ class EditEventViewController: UIViewController {
     
     
     
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        
-        
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.unwindToEventsID {

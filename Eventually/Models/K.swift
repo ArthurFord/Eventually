@@ -11,6 +11,7 @@ import Foundation
 struct K {
     
     static let longDate = "EEE MMM dd YYYY"
+    static let dateAndTime = "EEE MMM dd YYYY, h:mm a"
     static let GADTSmallTemplateViewID = "GADTSmallTemplateView"
     static let authLabel = "authLabel"
     
@@ -25,6 +26,9 @@ struct K {
         static let unwindToEventsID = "unwindToEvents"
         static let unwindToRootID = "unwindToRoot"
         static let straightToEventsAfterAuthID = "straightToEventsAfterAuth"
+        static let setDateSegueID = "setDateSegue"
+        static let unwindSetDateToNewViewID = "unwindSetDateToNewView"
+        static let unwindToNewEventFromReminderID = "unwindToNewEventFromReminder"
     }
     
     struct FStore {
@@ -34,6 +38,7 @@ struct K {
         static let start = "start"
         static let name = "name"
         static let notes = "notes"
+        static let reminder = "reminder"
     }
     
     struct VcId {
@@ -41,6 +46,8 @@ struct K {
         static let detailViewVC = "DetailView"
         static let editEventVC = "EditEventViewController"
         static let masterVCID = "MasterViewController"
+        static let datePickerViewControllerID = "datePickerViewController"
+        static let setReminderViewControllerID = "setReminderViewController"
     }
     
     struct table {
