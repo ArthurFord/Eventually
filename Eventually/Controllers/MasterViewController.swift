@@ -26,6 +26,8 @@ class MasterViewController: UIViewController {
     
     var adLoader: GADAdLoader!
     
+    let notificationCenter = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         eventsTableView.delegate = self
@@ -192,6 +194,7 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
                     print("Error removing document: \(err)")
                 } else {
                     print("deleted Data")
+                    self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [self.arrayOfEvents[indexPath.row].name])
                     self.arrayOfEvents.remove(at: indexPath.row)
                     DispatchQueue.main.async {
                         self.eventsTableView.reloadData()

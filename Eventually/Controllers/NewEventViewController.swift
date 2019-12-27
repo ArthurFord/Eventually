@@ -27,6 +27,7 @@ class NewEventViewController: UIViewController {
     
     let db = Firestore.firestore()
     let calendar = Calendar.current
+    let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         
@@ -127,7 +128,7 @@ class NewEventViewController: UIViewController {
                     K.FStore.end:endTimestamp,
                     K.FStore.notes:newEvent.notes,
                     K.FStore.userId:newEvent.userId,
-                    K.FStore.reminder:newEvent.reminder!,
+                    K.FStore.reminder:newEvent.reminder,
                     K.FStore.reminderOn:newEvent.reminderOn
                 ]) { (error) in
                     if let err = error {
@@ -153,7 +154,7 @@ class NewEventViewController: UIViewController {
             
             let request = UNNotificationRequest(identifier: newEvent.name, content: content, trigger: trigger)
             
-            let notificationCenter = UNUserNotificationCenter.current()
+            
             notificationCenter.add(request) { (error) in
                if error != nil {
                 print(error?.localizedDescription ?? "")
@@ -161,6 +162,10 @@ class NewEventViewController: UIViewController {
                 print("saved notification")
                 }
             }
+        }
+        if !newEvent.reminderOn {
+            print("removed!")
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: [newEvent.name])
         }
         
     }

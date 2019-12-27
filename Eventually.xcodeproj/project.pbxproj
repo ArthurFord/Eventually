@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A31C9D20D6E5036BEAC4FE5 /* Pods_Eventually.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7107E80374576575F74A6F75 /* Pods_Eventually.framework */; };
-		CE16631123A92EBE00455F8C /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16631023A92EBE00455F8C /* EditEventViewController.swift */; };
 		CE3E33A723A65822003C2744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33A623A65822003C2744 /* AppDelegate.swift */; };
 		CE3E33A923A65822003C2744 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33A823A65822003C2744 /* SceneDelegate.swift */; };
 		CE3E33B023A65822003C2744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3E33AE23A65822003C2744 /* Main.storyboard */; };
@@ -42,7 +41,6 @@
 		06129BA3E37DA287AF747AE6 /* Pods-Eventually.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventually.release.xcconfig"; path = "Target Support Files/Pods-Eventually/Pods-Eventually.release.xcconfig"; sourceTree = "<group>"; };
 		398CC2E6A9178A1821420E97 /* Pods-Eventually.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventually.debug.xcconfig"; path = "Target Support Files/Pods-Eventually/Pods-Eventually.debug.xcconfig"; sourceTree = "<group>"; };
 		7107E80374576575F74A6F75 /* Pods_Eventually.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventually.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE16631023A92EBE00455F8C /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		CE3E33A323A65822003C2744 /* Eventually.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventually.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3E33A623A65822003C2744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE3E33A823A65822003C2744 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			children = (
 				CE3E33BE23A65948003C2744 /* MasterViewController.swift */,
 				CE3E33D123A69ADF003C2744 /* DetailViewController.swift */,
-				CE16631023A92EBE00455F8C /* EditEventViewController.swift */,
 				CE3E33D323A6A1BC003C2744 /* NewEventViewController.swift */,
 				CE3E33D523A79F06003C2744 /* SplashViewController.swift */,
 				CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */,
@@ -327,7 +324,6 @@
 			files = (
 				CE3E33DA23A7A7CB003C2744 /* SignInViewController.swift in Sources */,
 				CE85634323B5759F000241C2 /* SetReminderViewController.swift in Sources */,
-				CE16631123A92EBE00455F8C /* EditEventViewController.swift in Sources */,
 				CE3E33C123A65995003C2744 /* Event.swift in Sources */,
 				CE3E33D823A7A5C0003C2744 /* K.swift in Sources */,
 				CE3E33D023A67661003C2744 /* DateExtension.swift in Sources */,
