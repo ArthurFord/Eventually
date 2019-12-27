@@ -12,12 +12,11 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var daysRemainingLabel: UILabel!
-    @IBOutlet weak var notesTextView: UITextView!
-    
+    @IBOutlet weak var reminderDateLabel: UILabel!
+    @IBOutlet weak var notesLabel: UILabel!
     
     
     var event: Event?
-    var eventIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,15 @@ class DetailViewController: UIViewController {
             dateLabel.text = dateFormatter.string(from: eventToLoad.end)
             navigationController?.title = eventToLoad.name
             daysRemainingLabel.text = String(eventToLoad.end.daysToEvent.day!)
-            notesTextView.text = eventToLoad.notes
+            notesLabel.text = eventToLoad.notes
+            if eventToLoad.reminder != nil {
+                let reminderDateFormatter = DateFormatter()
+                reminderDateFormatter.setLocalizedDateFormatFromTemplate(K.dateAndTime)
+                reminderDateLabel.text = reminderDateFormatter.string(from: eventToLoad.reminder!)
+            } else {
+                reminderDateLabel.text = "No reminder set"
+            }
+            
         }
         
     }
@@ -40,9 +47,8 @@ class DetailViewController: UIViewController {
 
     
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.editEventVC) as? EditEventViewController {
-            vc.newEvent = event!
-            vc.eventIndex = eventIndex
+        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.newEventVC) as? NewEventViewController {
+            vc.originalEvent = event!
             navigationController?.pushViewController(vc, animated: true)
         }
     }

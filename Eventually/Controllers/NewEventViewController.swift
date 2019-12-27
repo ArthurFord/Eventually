@@ -23,16 +23,41 @@ class NewEventViewController: UIViewController {
     
     
     var newEvent = Event()
+    var originalEvent: Event?
     
     let db = Firestore.firestore()
     let calendar = Calendar.current
     
     override func viewDidLoad() {
+        
+        if let eventToLoad = originalEvent {
+            //load the original event
+            newEvent = originalEvent!
+            let dateFormatter = DateFormatter()
+            dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
+            datelabel.text = dateFormatter.string(from: eventToLoad.end)
+            reminderSwitch.isOn = eventToLoad.reminderOn
+            nameTextField.text = eventToLoad.name
+            notesTextField.text = eventToLoad.notes
+            let reminderDateFormatter = DateFormatter()
+            reminderDateFormatter.setLocalizedDateFormatFromTemplate(K.dateAndTime)
+            
+            if eventToLoad.reminder != nil {
+                reminderLabel.text = reminderDateFormatter.string(from: eventToLoad.reminder!)
+            }
+            
+        } else {
+            //load from new event
+            let dateFormatter = DateFormatter()
+            dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
+            datelabel.text = dateFormatter.string(from: newEvent.end)
+            reminderSwitch.isOn = newEvent.reminderOn
+            nameTextField.text = newEvent.name
+            notesTextField.text = newEvent.notes
+        }
+        
         super.viewDidLoad()
-        let dateFormatter = DateFormatter()
-        dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
-        datelabel.text = dateFormatter.string(from: newEvent.end)
-        reminderSwitch.isOn = newEvent.reminderOn
+        
         
         reminderView.layer.cornerRadius = reminderView.frame.height / 4
         endDateView.layer.cornerRadius = endDateView.frame.height / 4
@@ -64,6 +89,7 @@ class NewEventViewController: UIViewController {
             newEvent.reminderOn = false
             newEvent.reminder = nil
             reminderLabel.text = "Set Reminder"
+            //TODO: - Delete previously set reminder
         }
     }
     
@@ -75,13 +101,6 @@ class NewEventViewController: UIViewController {
         }
     }
     
-    @IBAction func setReminderButtonTapped(_ sender: UIButton) {
-        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.setReminderViewControllerID) as? SetReminderViewController {
-                   vc.event = newEvent
-                   navigationController?.pushViewController(vc, animated: true)
-               }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.unwindToRootID {
             if segue.destination is MasterViewController {
@@ -91,13 +110,25 @@ class NewEventViewController: UIViewController {
                 let endTimestamp = Timestamp(date: newEvent.end)
                 newEvent.userId = Auth.auth().currentUser!.uid
                 
+                if originalEvent != nil {
+                    //delete original event
+                    db.collection(K.FStore.collectionName).document("\(Auth.auth().currentUser!.uid)\(originalEvent!.name)").delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("deleted Data")
+                        }
+                    }
+                }
+                
                 db.collection(K.FStore.collectionName).document("\(newEvent.userId)\(newEvent.name)").setData([
                     K.FStore.name:newEvent.name,
                     K.FStore.start:startTimestamp,
                     K.FStore.end:endTimestamp,
                     K.FStore.notes:newEvent.notes,
                     K.FStore.userId:newEvent.userId,
-                    K.FStore.reminder:newEvent.reminder ?? ""
+                    K.FStore.reminder:newEvent.reminder!,
+                    K.FStore.reminderOn:newEvent.reminderOn
                 ]) { (error) in
                     if let err = error {
                         print("FireStore \(err)")
@@ -108,7 +139,7 @@ class NewEventViewController: UIViewController {
             }
         }
         if newEvent.reminderOn, newEvent.reminder != nil {
-            print("reminder seq started.")
+            
             let dateFormatter = DateFormatter()
             dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
             

@@ -39,6 +39,7 @@ struct K {
         static let name = "name"
         static let notes = "notes"
         static let reminder = "reminder"
+        static let reminderOn = "reminderOn"
     }
     
     struct VcId {

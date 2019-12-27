@@ -37,7 +37,7 @@ class MasterViewController: UIViewController {
         
         nativeAdView = (UINib(nibName: K.GADTSmallTemplateViewID, bundle: .main).instantiate(withOwner: nil, options: nil).first as! GADUnifiedNativeAdView)
         
-        //setAdView(nativeAdView)
+        setAdView(nativeAdView)
         
     }
     
@@ -74,11 +74,18 @@ class MasterViewController: UIViewController {
                             guard let name = data[K.FStore.name] as? String else {return}
                             guard let notes = data[K.FStore.notes] as? String else {return}
                             
+                            let reminderOn = data[K.FStore.reminderOn] as? Bool ?? false
+                            
+                            let reminderTimeStamp = data[K.FStore.reminder] as? Timestamp ?? nil
+                            let reminder = reminderTimeStamp?.dateValue()
+                            
                             let newEvent = Event()
                             newEvent.name = name
                             newEvent.end = endDate
                             newEvent.start = startDate
                             newEvent.notes = notes
+                            newEvent.reminder = reminder
+                            newEvent.reminderOn = reminderOn
                             
                             let startOfDayEndDate = calendar.startOfDay(for: newEvent.end)
                             if startOfDayEndDate > cutOffDateStored {
@@ -172,7 +179,7 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
         if let vc = storyboard?.instantiateViewController(identifier: K.VcId.detailViewVC) as? DetailViewController {
             vc.title = arrayOfEvents[indexPath.row].name
             vc.event = arrayOfEvents[indexPath.row]
-            vc.eventIndex = indexPath.row
+            
             navigationController?.pushViewController(vc, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)
