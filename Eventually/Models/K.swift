@@ -29,6 +29,7 @@ struct K {
         static let setDateSegueID = "setDateSegue"
         static let unwindSetDateToNewViewID = "unwindSetDateToNewView"
         static let unwindToNewEventFromReminderID = "unwindToNewEventFromReminder"
+        static let toWebKitViewSegueID = "toWebKitViewSegue"
     }
     
     struct FStore {

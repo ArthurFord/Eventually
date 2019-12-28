@@ -43,7 +43,7 @@
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="nto-H4-1UO" kind="show" id="Cns-Fx-fG0"/>
+                                            <segue destination="nto-H4-1UO" kind="show" identifier="signUpSegue" id="Cns-Fx-fG0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -53,7 +53,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Privacy Policy"/>
                                 <connections>
-                                    <segue destination="R9j-ZR-euH" kind="show" id="Yic-Jo-UV1"/>
+                                    <segue destination="R9j-ZR-euH" kind="show" id="bCS-W5-JwR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -75,7 +75,7 @@
                     <navigationItem key="navigationItem" id="vBB-iX-OwD"/>
                     <connections>
                         <outlet property="signInButton" destination="Pvx-Cl-D83" id="QpJ-CE-5TY"/>
-                        <segue destination="bm8-YX-nGA" kind="show" id="abx-Jn-AYX"/>
+                        <segue destination="bm8-YX-nGA" kind="show" identifier="signInSegue" id="abx-Jn-AYX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbM-0c-1NF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -179,7 +179,7 @@
                     <navigationItem key="navigationItem" title="Events" largeTitleDisplayMode="always" id="xgF-NG-GSj">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="Uf7-Ig-sHB">
                             <connections>
-                                <segue destination="xoh-9t-rls" kind="unwind" unwindAction="unwindToRootViewControllerWithSegue:" id="qG8-Gf-TvQ"/>
+                                <segue destination="xoh-9t-rls" kind="unwind" identifier="unwindUnknown" unwindAction="unwindToRootViewControllerWithSegue:" id="qG8-Gf-TvQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="CtU-gI-vVR">
@@ -684,7 +684,7 @@
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sis-oO-I7O"/>
+        <segue reference="Rfq-n0-vPp"/>
         <segue reference="WDc-cw-G5E"/>
     </inferredMetricsTieBreakers>
 </document>
