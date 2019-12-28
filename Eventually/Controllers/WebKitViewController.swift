@@ -18,7 +18,7 @@ class WebKitViewController: UIViewController, WKUIDelegate {
 
         webKitView.uiDelegate = self
        
-        let privacyURL = URL(string: "https://s3.amazonaws.com/www.arthurford.info/Eventually_App_privacy_policy.html")
+        let privacyURL = URL(string: "https://eventually-app.s3.amazonaws.com/Eventually_App_privacy_policy.html")
         
         let privacyRequest = URLRequest(url: privacyURL!)
         
