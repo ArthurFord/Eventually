@@ -16,6 +16,7 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .label
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         do {
             try checkCredentials()

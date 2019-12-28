@@ -36,10 +36,11 @@ class MasterViewController: UIViewController {
         
         
         navigationController?.navigationBar.tintColor = .label
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         nativeAdView = (UINib(nibName: K.GADTSmallTemplateViewID, bundle: .main).instantiate(withOwner: nil, options: nil).first as! GADUnifiedNativeAdView)
         
-        setAdView(nativeAdView)
+        //setAdView(nativeAdView)
         
     }
     

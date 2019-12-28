@@ -17,10 +17,8 @@ class NewEventViewController: UIViewController {
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var reminderLabel: UILabel!
     @IBOutlet weak var reminderSwitch: UISwitch!
-    
     @IBOutlet weak var reminderView: UIView!
     @IBOutlet weak var endDateView: UIView!
-    
     
     var newEvent = Event()
     var originalEvent: Event?
