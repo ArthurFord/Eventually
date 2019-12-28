@@ -32,7 +32,7 @@
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="bm8-YX-nGA" kind="show" id="x7u-KK-Dm2"/>
+                                            <action selector="signInButtonTapped:" destination="jWF-N1-GTG" eventType="touchUpInside" id="JQW-Yh-Uwq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8p-fm-zUi">
@@ -48,19 +48,35 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbh-no-Ti2">
+                                <rect key="frame" x="127" y="474" width="120" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Privacy Policy"/>
+                                <connections>
+                                    <segue destination="R9j-ZR-euH" kind="show" id="Yic-Jo-UV1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="IaK-BQ-Lek" firstAttribute="top" secondItem="1dR-wh-LTb" secondAttribute="bottom" constant="155" id="9Qp-Fz-Z7c"/>
                             <constraint firstItem="Qrf-vH-XGe" firstAttribute="trailing" secondItem="1dR-wh-LTb" secondAttribute="trailing" constant="20" id="O0A-vZ-bq0"/>
+                            <constraint firstItem="Lbh-no-Ti2" firstAttribute="top" secondItem="IaK-BQ-Lek" secondAttribute="bottom" constant="123" id="Pg8-TG-cv4"/>
                             <constraint firstItem="1dR-wh-LTb" firstAttribute="leading" secondItem="Qrf-vH-XGe" secondAttribute="leading" constant="20" id="Xgl-ZE-sH2"/>
                             <constraint firstItem="IaK-BQ-Lek" firstAttribute="leading" secondItem="Qrf-vH-XGe" secondAttribute="leading" constant="63" id="cj0-L5-8FM"/>
+                            <constraint firstItem="Qrf-vH-XGe" firstAttribute="trailing" secondItem="Lbh-no-Ti2" secondAttribute="trailing" constant="128" id="lUe-2d-6XD"/>
+                            <constraint firstItem="Qrf-vH-XGe" firstAttribute="bottom" secondItem="Lbh-no-Ti2" secondAttribute="bottom" constant="157" id="m4M-Fc-bJo"/>
                             <constraint firstItem="1dR-wh-LTb" firstAttribute="top" secondItem="Qrf-vH-XGe" secondAttribute="top" constant="45" id="tm7-zM-OzZ"/>
                             <constraint firstItem="Qrf-vH-XGe" firstAttribute="trailing" secondItem="IaK-BQ-Lek" secondAttribute="trailing" constant="63" id="z4p-u7-6cg"/>
+                            <constraint firstItem="Lbh-no-Ti2" firstAttribute="leading" secondItem="Qrf-vH-XGe" secondAttribute="leading" constant="127" id="zVl-Zs-hia"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qrf-vH-XGe"/>
                     </view>
                     <navigationItem key="navigationItem" id="vBB-iX-OwD"/>
+                    <connections>
+                        <outlet property="signInButton" destination="Pvx-Cl-D83" id="QpJ-CE-5TY"/>
+                        <segue destination="bm8-YX-nGA" kind="show" id="abx-Jn-AYX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbM-0c-1NF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +85,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="3mJ-JQ-kmq">
             <objects>
-                <viewController id="bm8-YX-nGA" userLabel="Sign In View Controller" customClass="SignInViewController" customModule="Eventually" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signInViewController" id="bm8-YX-nGA" userLabel="Sign In View Controller" customClass="SignInViewController" customModule="Eventually" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X8a-OE-kFb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -552,6 +568,41 @@
             </objects>
             <point key="canvasLocation" x="-1543.4782608695652" y="18.75"/>
         </scene>
+        <!--Web Kit View Controller-->
+        <scene sceneID="nat-mw-3xD">
+            <objects>
+                <viewController id="R9j-ZR-euH" customClass="WebKitViewController" customModule="Eventually" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z3v-2u-HBH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40x-0g-ZKh">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="40x-0g-ZKh" firstAttribute="top" secondItem="1ZS-l3-0n4" secondAttribute="top" id="4aM-nf-eox"/>
+                            <constraint firstItem="40x-0g-ZKh" firstAttribute="bottom" secondItem="1ZS-l3-0n4" secondAttribute="bottom" id="nZm-Kh-pRA"/>
+                            <constraint firstItem="40x-0g-ZKh" firstAttribute="trailing" secondItem="1ZS-l3-0n4" secondAttribute="trailing" id="sRU-Vo-r7r"/>
+                            <constraint firstItem="40x-0g-ZKh" firstAttribute="leading" secondItem="1ZS-l3-0n4" secondAttribute="leading" id="tIb-ZD-8Hc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ZS-l3-0n4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HEp-eV-Lti"/>
+                    <connections>
+                        <outlet property="webKitView" destination="40x-0g-ZKh" id="nPZ-4x-QcU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLf-i5-z6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778.39999999999998" y="809.14542728635683"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9dl-QJ-ObA">
             <objects>
@@ -633,7 +684,7 @@
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sis-oO-I7O"/>
+        <segue reference="Rfq-n0-vPp"/>
         <segue reference="WDc-cw-G5E"/>
     </inferredMetricsTieBreakers>
 </document>

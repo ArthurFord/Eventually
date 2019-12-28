@@ -40,7 +40,7 @@ class MasterViewController: UIViewController {
         
         nativeAdView = (UINib(nibName: K.GADTSmallTemplateViewID, bundle: .main).instantiate(withOwner: nil, options: nil).first as! GADUnifiedNativeAdView)
         
-        //setAdView(nativeAdView)
+        setAdView(nativeAdView)
         
     }
     
@@ -189,14 +189,15 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [self.arrayOfEvents[indexPath.row].name])
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, actionPerformed) in
             self.db.collection(K.FStore.collectionName).document("\(Auth.auth().currentUser!.uid)\(self.arrayOfEvents[indexPath.row].name)").delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
                     print("deleted Data")
-                    self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [self.arrayOfEvents[indexPath.row].name])
-                    self.arrayOfEvents.remove(at: indexPath.row)
+                    
                     DispatchQueue.main.async {
                         self.eventsTableView.reloadData()
                     }

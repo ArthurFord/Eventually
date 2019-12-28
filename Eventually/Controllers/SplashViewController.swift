@@ -12,6 +12,10 @@ import Firebase
 class SplashViewController: UIViewController {
     
     
+    var credentials: Credentials?
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,14 @@ class SplashViewController: UIViewController {
         } catch  {
             print(error)
         }
+        
+        if credentials != nil {
+            moveToSignInScreen()
+        }
+    }
+    
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
+        moveToSignInScreen()
     }
     
     func checkCredentials() throws {
@@ -41,26 +53,22 @@ class SplashViewController: UIViewController {
             let passwordData = existingItem[kSecValueData as String] as? Data,
             let password = String(data: passwordData, encoding: String.Encoding.utf8),
             let account = existingItem[kSecAttrAccount as String] as? String
-        else {
-            throw KeychainError.unexpectedPasswordData
+            else {
+                throw KeychainError.unexpectedPasswordData
         }
-        let credentials = Credentials(username: account, password: password)
-        
-        Auth.auth().signIn(withEmail: credentials.username, password: credentials.password) {authResult, error in
-            if let err = error {
-                print(err)
-            } else {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = storyboard.instantiateViewController(identifier: K.VcId.masterVCID) as? MasterViewController {
-                    vc.modalPresentationStyle = .fullScreen
-                    self.navigationController?.navigationBar.prefersLargeTitles = true
-                    vc.title = "Events"
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-            }
-        }
+        credentials = Credentials(username: account, password: password)
     }
     
+    func moveToSignInScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         if let vc = storyboard.instantiateViewController(identifier: K.VcId.signInViewControllerID) as? SignInViewController {
+             vc.modalPresentationStyle = .fullScreen
+            if credentials != nil {
+                vc.credentials = credentials
+            }
+             self.navigationController?.pushViewController(vc, animated: true)
+         }
+    }
     
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
         let firebaseAuth = Auth.auth()

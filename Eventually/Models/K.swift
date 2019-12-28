@@ -49,6 +49,7 @@ struct K {
         static let masterVCID = "MasterViewController"
         static let datePickerViewControllerID = "datePickerViewController"
         static let setReminderViewControllerID = "setReminderViewController"
+        static let signInViewControllerID = "signInViewController"
     }
     
     struct table {
@@ -59,7 +60,6 @@ struct K {
     struct adInfo: Codable {
         var adUnitID: String
     }
-
 }
 
 struct Credentials {

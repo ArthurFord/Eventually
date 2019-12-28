@@ -35,6 +35,7 @@
 		CE89A6A523AF8F6100B70F39 /* GADTTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89A69C23AF8F6100B70F39 /* GADTTemplateView.m */; };
 		CE89A6A623AF8F6100B70F39 /* GADTMediumTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89A69D23AF8F6100B70F39 /* GADTMediumTemplateView.m */; };
 		CE89A6A823B2359D00B70F39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE89A6A723B2359C00B70F39 /* GoogleService-Info.plist */; };
+		CEEC771523B7C3FD00D2B91B /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC771423B7C3FD00D2B91B /* WebKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		CE89A69D23AF8F6100B70F39 /* GADTMediumTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTMediumTemplateView.m; sourceTree = "<group>"; };
 		CE89A69E23AF8F6100B70F39 /* GADTSmallTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTSmallTemplateView.h; sourceTree = "<group>"; };
 		CE89A6A723B2359C00B70F39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEEC771423B7C3FD00D2B91B /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				CE3E33DB23A7A896003C2744 /* SignUpViewController.swift */,
 				CE85634023B560D6000241C2 /* DatePickerViewController.swift */,
 				CE85634223B5759F000241C2 /* SetReminderViewController.swift */,
+				CEEC771423B7C3FD00D2B91B /* WebKitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				CE3E33D423A6A1BC003C2744 /* NewEventViewController.swift in Sources */,
 				CE89A6A323AF8F6100B70F39 /* GADTSmallTemplateView.m in Sources */,
 				CE89A6A523AF8F6100B70F39 /* GADTTemplateView.m in Sources */,
+				CEEC771523B7C3FD00D2B91B /* WebKitViewController.swift in Sources */,
 				CE3E33A723A65822003C2744 /* AppDelegate.swift in Sources */,
 				CE3E33DC23A7A896003C2744 /* SignUpViewController.swift in Sources */,
 				CE3E33A923A65822003C2744 /* SceneDelegate.swift in Sources */,
