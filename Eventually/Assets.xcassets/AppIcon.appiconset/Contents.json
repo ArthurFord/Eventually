@@ -3,49 +3,49 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo20@2x.png",
+      "filename" : "Eventually Logo@2x20.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo20@3x.png",
+      "filename" : "Eventually Logo@3x20.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo29@2x.png",
+      "filename" : "Eventually Logo@2x29.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo29@3x.png",
+      "filename" : "Eventually Logo@3x29.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo40@2x.png",
+      "filename" : "Eventually Logo@2x40.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo40@3x.png",
+      "filename" : "Eventually Logo@3x40.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo60@2x.png",
+      "filename" : "Eventually Logo@2x60.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Eventually Logo60@3x.png",
+      "filename" : "Eventually Logo@3x60.png",
       "scale" : "3x"
     },
     {
@@ -57,7 +57,7 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Eventually Logo20@2x-1.png",
+      "filename" : "Eventually Logo@2x20-1.png",
       "scale" : "2x"
     },
     {
@@ -69,7 +69,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Eventually Logo29@2x-1.png",
+      "filename" : "Eventually Logo@2x29-1.png",
       "scale" : "2x"
     },
     {
@@ -81,7 +81,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Eventually Logo40@2x-1.png",
+      "filename" : "Eventually Logo@2x40-1.png",
       "scale" : "2x"
     },
     {
@@ -93,7 +93,7 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Eventually Logo76@2x.png",
+      "filename" : "Eventually Logo@2x76.png",
       "scale" : "2x"
     },
     {
@@ -105,7 +105,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "Eventually Logo1024.png",
+      "filename" : "Eventually Logo Flat1024.png",
       "scale" : "1x"
     }
   ],
