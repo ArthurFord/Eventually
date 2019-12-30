@@ -10,8 +10,8 @@ import Foundation
 
 struct K {
     
-    static let longDate = "EEE MMM dd YYYY"
-    static let dateAndTime = "EEE MMM dd YYYY, h:mm a"
+    static let longDate = "EEE MMM dd yyyy"
+    static let dateAndTime = "EEE MMM dd yyyy, h:mm a"
     static let GADTSmallTemplateViewID = "GADTSmallTemplateView"
     static let authLabel = "authLabel"
     
