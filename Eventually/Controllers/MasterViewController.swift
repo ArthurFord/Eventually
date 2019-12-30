@@ -205,6 +205,7 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     

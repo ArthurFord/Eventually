@@ -30,8 +30,11 @@ class NewEventViewController: UIViewController {
     override func viewDidLoad() {
         
         if let eventToLoad = originalEvent {
+            
             //load the original event
-            newEvent = originalEvent!
+            newEvent.name = originalEvent?.name ?? ""
+            newEvent.end = originalEvent?.end ?? Date()
+            newEvent.notes = originalEvent?.notes ?? ""
             let dateFormatter = DateFormatter()
             dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
             datelabel.text = dateFormatter.string(from: eventToLoad.end)
