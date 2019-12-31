@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4k-Fw-SH4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.92753623188406" y="-299.33035714285711"/>
+            <point key="canvasLocation" x="145" y="-393"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="vJy-ax-p1U">
@@ -382,7 +382,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NbI-88-AnL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="egw-Ia-RiN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2997.5999999999999" y="467.3163418290855"/>
+            <point key="canvasLocation" x="2999" y="369"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="vqG-y4-nXN">
@@ -472,7 +472,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Al5-s3-0tB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Gse-it-p1e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4118.840579710145" y="884.59821428571422"/>
+            <point key="canvasLocation" x="4118" y="809"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="t1P-95-xOf">
@@ -570,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4Q-Dh-z8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3000.0000000000005" y="-398.4375"/>
+            <point key="canvasLocation" x="2998" y="-393"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y1B-NJ-w1i">
