@@ -70,5 +70,6 @@ class SignUpViewController: UIViewController {
         
         let status = SecItemAdd(query as CFDictionary, nil)
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
+            
     }
 }

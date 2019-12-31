@@ -21,6 +21,7 @@ class DatePickerViewController: UIViewController {
         if let eventToLoad = event {
             datePicker.setDate(eventToLoad.end, animated: true)
         }
+        datePicker.minimumDate = Date()
         
     }
     

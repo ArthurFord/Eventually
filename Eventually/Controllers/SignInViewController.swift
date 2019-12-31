@@ -24,6 +24,7 @@ class SignInViewController: UIViewController {
             emailTextField.text = credentials?.username
             passwordTextField.text = credentials?.password
         }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -71,6 +72,7 @@ class SignInViewController: UIViewController {
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 }
+
 
 
 

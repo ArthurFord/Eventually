@@ -20,6 +20,7 @@ class SetReminderViewController: UIViewController {
         if let eventToLoad = event {
             datePickerView.setDate(eventToLoad.end, animated: true)
         }
+        datePickerView.minimumDate = Date()
         
     }
     
