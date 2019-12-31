@@ -209,7 +209,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-3m-N2W">
-                                <rect key="frame" x="20" y="96" width="335" height="210"/>
+                                <rect key="frame" x="20" y="96" width="335" height="278"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-4X-P8Z">
                                         <rect key="frame" x="8" y="8" width="319" height="34"/>
@@ -255,9 +255,9 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLh-oO-XOQ">
-                                        <rect key="frame" x="8" y="108" width="319" height="50"/>
+                                        <rect key="frame" x="8" y="166" width="319" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="dOO-Zo-LD2">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="dOO-Zo-LD2">
                                                 <rect key="frame" x="8" y="15" width="225" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -285,27 +285,67 @@
                                             <constraint firstItem="fOX-7w-xea" firstAttribute="top" secondItem="yLh-oO-XOQ" secondAttribute="top" constant="10" id="mJr-Jy-NBD"/>
                                         </constraints>
                                     </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-8c-Y5c">
+                                        <rect key="frame" x="8" y="108" width="319" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="EaM-3m-zrR">
+                                                <rect key="frame" x="8" y="15" width="266" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcz-Ut-gve">
+                                                <rect key="frame" x="282" y="3" width="29" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="29" id="Nqh-9Y-rvY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" image="chevron.right.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="reminderButtonTapped:" destination="nCL-XZ-38l" eventType="touchUpInside" id="J07-5k-qM4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="0.48194028249999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="tcz-Ut-gve" firstAttribute="top" secondItem="L7E-8c-Y5c" secondAttribute="top" constant="3" id="71M-dj-roG"/>
+                                            <constraint firstAttribute="height" constant="50" id="IT3-2K-k6b"/>
+                                            <constraint firstItem="tcz-Ut-gve" firstAttribute="leading" secondItem="EaM-3m-zrR" secondAttribute="trailing" constant="8" id="WGS-nb-vpl"/>
+                                            <constraint firstItem="tcz-Ut-gve" firstAttribute="leading" secondItem="EaM-3m-zrR" secondAttribute="trailing" constant="8" id="Wqe-uT-5hZ"/>
+                                            <constraint firstItem="EaM-3m-zrR" firstAttribute="leading" secondItem="L7E-8c-Y5c" secondAttribute="leading" constant="8" id="Yz2-Y8-7BI"/>
+                                            <constraint firstAttribute="bottom" secondItem="tcz-Ut-gve" secondAttribute="bottom" constant="2" id="bsO-Wq-PyC"/>
+                                            <constraint firstAttribute="bottom" secondItem="EaM-3m-zrR" secondAttribute="bottom" constant="14" id="eIc-r7-Zxf"/>
+                                            <constraint firstAttribute="trailing" secondItem="tcz-Ut-gve" secondAttribute="trailing" constant="8" id="jaW-Qc-lfr"/>
+                                            <constraint firstItem="EaM-3m-zrR" firstAttribute="top" secondItem="L7E-8c-Y5c" secondAttribute="top" constant="15" id="yCP-dB-V1A"/>
+                                        </constraints>
+                                    </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6GZ-IG-8f7">
-                                        <rect key="frame" x="8" y="166" width="319" height="34"/>
+                                        <rect key="frame" x="8" y="224" width="319" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="L7E-8c-Y5c" firstAttribute="top" secondItem="Ijx-ob-9aI" secondAttribute="bottom" constant="8" id="0c7-ON-MYg"/>
                                     <constraint firstItem="F9b-4X-P8Z" firstAttribute="top" secondItem="ek0-3m-N2W" secondAttribute="top" constant="8" id="4gk-WY-08Z"/>
                                     <constraint firstAttribute="trailing" secondItem="Ijx-ob-9aI" secondAttribute="trailing" constant="8" id="BeQ-PJ-YTE"/>
+                                    <constraint firstItem="L7E-8c-Y5c" firstAttribute="leading" secondItem="ek0-3m-N2W" secondAttribute="leading" constant="8" id="FNc-Rr-gI9"/>
                                     <constraint firstItem="6GZ-IG-8f7" firstAttribute="leading" secondItem="ek0-3m-N2W" secondAttribute="leading" constant="8" id="KdD-eN-huI"/>
                                     <constraint firstAttribute="trailing" secondItem="6GZ-IG-8f7" secondAttribute="trailing" constant="8" id="OUi-dF-oKX"/>
                                     <constraint firstItem="yLh-oO-XOQ" firstAttribute="leading" secondItem="ek0-3m-N2W" secondAttribute="leading" constant="8" id="Ttd-Nl-Qby"/>
-                                    <constraint firstItem="yLh-oO-XOQ" firstAttribute="top" secondItem="Ijx-ob-9aI" secondAttribute="bottom" constant="8" id="cPF-t7-1q4"/>
+                                    <constraint firstItem="yLh-oO-XOQ" firstAttribute="top" secondItem="Ijx-ob-9aI" secondAttribute="bottom" constant="66" id="cPF-t7-1q4"/>
                                     <constraint firstAttribute="trailing" secondItem="yLh-oO-XOQ" secondAttribute="trailing" constant="8" id="dne-qs-wLt"/>
                                     <constraint firstItem="6GZ-IG-8f7" firstAttribute="top" secondItem="yLh-oO-XOQ" secondAttribute="bottom" constant="8" id="ext-AY-Efs"/>
+                                    <constraint firstItem="yLh-oO-XOQ" firstAttribute="top" secondItem="L7E-8c-Y5c" secondAttribute="bottom" constant="8" id="gGR-Jp-k3e"/>
                                     <constraint firstAttribute="trailing" secondItem="F9b-4X-P8Z" secondAttribute="trailing" constant="8" id="gc9-3J-oVd"/>
                                     <constraint firstItem="F9b-4X-P8Z" firstAttribute="leading" secondItem="ek0-3m-N2W" secondAttribute="leading" constant="8" id="gpA-sn-Hv2"/>
                                     <constraint firstItem="Ijx-ob-9aI" firstAttribute="leading" secondItem="ek0-3m-N2W" secondAttribute="leading" constant="8" id="iPB-4l-ygD"/>
                                     <constraint firstItem="Ijx-ob-9aI" firstAttribute="top" secondItem="F9b-4X-P8Z" secondAttribute="bottom" constant="8" id="p36-o0-Ybz"/>
-                                    <constraint firstAttribute="bottom" secondItem="6GZ-IG-8f7" secondAttribute="bottom" constant="10" id="paW-pf-p0V"/>
+                                    <constraint firstAttribute="bottom" secondItem="6GZ-IG-8f7" secondAttribute="bottom" constant="20" id="paW-pf-p0V"/>
+                                    <constraint firstAttribute="trailing" secondItem="L7E-8c-Y5c" secondAttribute="trailing" constant="8" id="xcZ-i9-xmB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -331,9 +371,10 @@
                         <outlet property="endDateView" destination="Ijx-ob-9aI" id="xtg-6q-2aM"/>
                         <outlet property="nameTextField" destination="F9b-4X-P8Z" id="0OT-fA-u7u"/>
                         <outlet property="notesTextField" destination="6GZ-IG-8f7" id="cT9-8s-m97"/>
-                        <outlet property="reminderLabel" destination="dOO-Zo-LD2" id="faN-N4-bWu"/>
+                        <outlet property="reminderLabel" destination="EaM-3m-zrR" id="7ZR-dW-fkP"/>
                         <outlet property="reminderSwitch" destination="fOX-7w-xea" id="es5-Fp-Ubr"/>
-                        <outlet property="reminderView" destination="yLh-oO-XOQ" id="HT2-l5-Lmn"/>
+                        <outlet property="setReminderView" destination="L7E-8c-Y5c" id="QPO-Dq-b12"/>
+                        <outlet property="toggleReminderView" destination="yLh-oO-XOQ" id="HT2-l5-Lmn"/>
                         <segue destination="Bq3-E1-1ph" kind="show" identifier="setDateSegue" id="CwH-fe-YbA"/>
                         <segue destination="G7S-Sz-W3n" kind="show" identifier="setReminderSegue" id="Adt-vt-KCb"/>
                     </connections>

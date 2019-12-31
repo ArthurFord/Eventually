@@ -17,8 +17,10 @@ class NewEventViewController: UIViewController {
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var reminderLabel: UILabel!
     @IBOutlet weak var reminderSwitch: UISwitch!
-    @IBOutlet weak var reminderView: UIView!
+    @IBOutlet weak var toggleReminderView: UIView!
     @IBOutlet weak var endDateView: UIView!
+    @IBOutlet weak var setReminderView: UIView!
+    
     
     var newEvent = Event()
     var originalEvent: Event?
@@ -60,10 +62,15 @@ class NewEventViewController: UIViewController {
         
         super.viewDidLoad()
         
-        
-        reminderView.layer.cornerRadius = reminderView.frame.height / 4
+        toggleReminderView.layer.cornerRadius = toggleReminderView.frame.height / 4
         endDateView.layer.cornerRadius = endDateView.frame.height / 4
-        
+        setReminderView.layer.cornerRadius = endDateView.frame.height / 4
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if reminderLabel.text == "Set Reminder" {
+            reminderSwitch.isOn = false
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,27 +84,38 @@ class NewEventViewController: UIViewController {
     }
     
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
-           
-       }
+        
+    }
+    
+    @IBAction func reminderButtonTapped(_ sender: UIButton) {
+        setReminder()
+    }
     
     @IBAction func ReminderSwitchChanged(_ sender: UISwitch) {
-        if sender.isOn == true {
-            newEvent.reminderOn = true
-                    if let vc = storyboard?.instantiateViewController(identifier: K.VcId.setReminderViewControllerID) as? SetReminderViewController {
-                       vc.event = newEvent
-                       navigationController?.pushViewController(vc, animated: true)
-                   }
-        } else {
+        if sender.isOn == false {
             newEvent.reminderOn = false
             newEvent.reminder = nil
             reminderLabel.text = "Set Reminder"
-            //TODO: - Delete previously set reminder
+
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: [newEvent.name])
+
+        } else {
+            setReminder()
         }
     }
     
     
     @IBAction func setDateButtonTapped(_ sender: UIButton) {
         if let vc = storyboard?.instantiateViewController(identifier: K.VcId.datePickerViewControllerID) as? DatePickerViewController {
+            vc.event = newEvent
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func setReminder() {
+        newEvent.reminderOn = true
+        
+        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.setReminderViewControllerID) as? SetReminderViewController {
             vc.event = newEvent
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -121,6 +139,7 @@ class NewEventViewController: UIViewController {
                             print("deleted Data")
                         }
                     }
+                    notificationCenter.removePendingNotificationRequests(withIdentifiers: [originalEvent!.name])
                 }
                 
                 db.collection(K.FStore.collectionName).document("\(newEvent.userId)\(newEvent.name)").setData([
@@ -157,15 +176,15 @@ class NewEventViewController: UIViewController {
             
             
             notificationCenter.add(request) { (error) in
-               if error != nil {
-                print(error?.localizedDescription ?? "")
-               } else {
-                print("saved notification")
+                if error != nil {
+                    print(error?.localizedDescription ?? "")
+                } else {
+                    print("saved notification")
                 }
             }
         }
         if !newEvent.reminderOn {
-            print("removed!")
+            
             notificationCenter.removePendingNotificationRequests(withIdentifiers: [newEvent.name])
         }
         
