@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import GoogleMobileAds
 
 class MasterViewController: UIViewController {
     
@@ -20,11 +19,9 @@ class MasterViewController: UIViewController {
     
     @IBOutlet weak var adPlaceholderView: UIView!
     
-    var nativeAdView: GADUnifiedNativeAdView!
+
     
-    var nativeAd = GADUnifiedNativeAd()
-    
-    var adLoader: GADAdLoader!
+
     
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -38,15 +35,12 @@ class MasterViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         navigationController?.setNavigationBarHidden(false, animated: false)
         
-        nativeAdView = (UINib(nibName: K.GADTSmallTemplateViewID, bundle: .main).instantiate(withOwner: nil, options: nil).first as! GADUnifiedNativeAdView)
-        
-        setAdView(nativeAdView)
+
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadEvents()
-        loadAd()
     }
     
     func loadEvents() {
@@ -105,33 +99,7 @@ class MasterViewController: UIViewController {
         
     }
     
-    func loadAd() {
-        
-        var adUnitID = ""
-        let numAdsToLoad = 1
-        
-        if let path = Bundle.main.path(forResource: "Info", ofType: "plist"){
-            guard let xml = FileManager.default.contents(atPath: path) else { return }
-            do {
-                let info = try PropertyListDecoder().decode(K.adInfo.self, from: xml)
-                adUnitID = info.adUnitID
-            } catch  {
-                print(error)
-            }
-        }
-        
-        let options = GADMultipleAdsAdLoaderOptions()
-        options.numberOfAds = numAdsToLoad
-        
-        // Prepare the ad loader and start loading ads.
-        adLoader = GADAdLoader(adUnitID: adUnitID,
-                               rootViewController: self,
-                               adTypes: [.unifiedNative],
-                               options: [options])
-        adLoader.delegate = self
-        adLoader.load(GADRequest())
-        
-    }
+
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         if let vc = storyboard?.instantiateViewController(identifier: K.VcId.newEventVC) as? NewEventViewController {
@@ -209,68 +177,4 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-}
-// MARK: - Ad Loader Delegate
-
-extension MasterViewController: GADUnifiedNativeAdLoaderDelegate {
-    func adLoader(_ adLoader: GADAdLoader,
-                  didFailToReceiveAdWithError error: GADRequestError) {
-        print("\(adLoader) failed with error: \(error.localizedDescription)")
-        
-    }
-    
-    func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
-        print("Received native ad: \(nativeAd)")
-        self.nativeAd = nativeAd
-        self.nativeAd.delegate = self
-        // Add the native ad to the list of native ads.
-        nativeAdView.nativeAd = nativeAd
-        (nativeAdView.headlineView as! UILabel).text = nativeAd.headline
-        (nativeAdView.advertiserView as! UILabel).text = nativeAd.advertiser
-        (nativeAdView.callToActionView as! UIButton).setTitle(nativeAd.callToAction, for: .normal)
-        (nativeAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
-        nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
-        
-    }
-    
-    func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
-    }
-    
-    func setAdView(_ view: GADUnifiedNativeAdView) {
-        adPlaceholderView.addSubview(view)
-        
-        let viewDictionary = ["_nativeAdView": nativeAdView!]
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|",
-                                                                options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|",
-                                                                options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary))
-    }
-}
-
-// MARK: - GADUnifiedNativeAdDelegate
-extension MasterViewController : GADUnifiedNativeAdDelegate {
-    
-    func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
-        print("\(#function) called")
-    }
-    
-    func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
-        print("\(#function) called")
-    }
-    
-    func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
-        print("\(#function) called")
-    }
-    
-    func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
-        print("\(#function) called")
-    }
-    
-    func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
-        print("\(#function) called")
-    }
-    
-    func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
-        print("\(#function) called")
-    }
 }
