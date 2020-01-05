@@ -89,6 +89,8 @@ class SignInViewController: UIViewController {
                                         kSecValueData as String: passwordFinal]
         
         let status = SecItemAdd(query as CFDictionary, nil)
+        let errorToPrint = SecCopyErrorMessageString(status, nil)
+        print(errorToPrint)
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 }

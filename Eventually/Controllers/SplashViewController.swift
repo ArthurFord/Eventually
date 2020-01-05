@@ -37,7 +37,7 @@ class SplashViewController: UIViewController {
         }
         
         if credentials != nil {
-            moveToSignInScreen()
+            moveToEvents(credentials: credentials!)
         }
     }
     
@@ -80,6 +80,27 @@ class SplashViewController: UIViewController {
             }
              self.navigationController?.pushViewController(vc, animated: true)
          }
+    }
+    
+    func moveToEvents(credentials: Credentials) {
+        let email = credentials.username
+        let password = credentials.password
+        
+        Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
+            if let err = error {
+                let alert = UIAlertController(title: "Login Error", message: err.localizedDescription, preferredStyle: .alert)
+                alert.addAction(.init(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let vc = storyboard.instantiateViewController(identifier: K.VcId.masterVCID) as? MasterViewController {
+                    vc.modalPresentationStyle = .fullScreen
+                    self.navigationController?.navigationBar.prefersLargeTitles = true
+                    vc.title = "Events"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
     }
     
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
