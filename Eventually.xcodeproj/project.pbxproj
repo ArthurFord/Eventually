@@ -19,7 +19,6 @@
 		CE3E33CE23A67027003C2744 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3E33CC23A67027003C2744 /* EventTableViewCell.xib */; };
 		CE3E33D023A67661003C2744 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33CF23A67661003C2744 /* DateExtension.swift */; };
 		CE3E33D223A69ADF003C2744 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D123A69ADF003C2744 /* DetailViewController.swift */; };
-		CE3E33D423A6A1BC003C2744 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D323A6A1BC003C2744 /* NewEventViewController.swift */; };
 		CE3E33D623A79F06003C2744 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D523A79F06003C2744 /* SplashViewController.swift */; };
 		CE3E33D823A7A5C0003C2744 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D723A7A5C0003C2744 /* K.swift */; };
 		CE3E33DA23A7A7CB003C2744 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */; };
@@ -51,7 +50,6 @@
 		CE3E33CC23A67027003C2744 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E33CF23A67661003C2744 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CE3E33D123A69ADF003C2744 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		CE3E33D323A6A1BC003C2744 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		CE3E33D523A79F06003C2744 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE3E33D723A7A5C0003C2744 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 			children = (
 				CE3E33BE23A65948003C2744 /* MasterViewController.swift */,
 				CE3E33D123A69ADF003C2744 /* DetailViewController.swift */,
-				CE3E33D323A6A1BC003C2744 /* NewEventViewController.swift */,
 				CE3E33D523A79F06003C2744 /* SplashViewController.swift */,
 				CE3E33D923A7A7CB003C2744 /* SignInViewController.swift */,
 				CE3E33DB23A7A896003C2744 /* SignUpViewController.swift */,
@@ -291,7 +288,6 @@
 				CE3E33C123A65995003C2744 /* Event.swift in Sources */,
 				CE3E33D823A7A5C0003C2744 /* K.swift in Sources */,
 				CE3E33D023A67661003C2744 /* DateExtension.swift in Sources */,
-				CE3E33D423A6A1BC003C2744 /* NewEventViewController.swift in Sources */,
 				CEEC771523B7C3FD00D2B91B /* WebKitViewController.swift in Sources */,
 				CE3E33A723A65822003C2744 /* AppDelegate.swift in Sources */,
 				CE3E33DC23A7A896003C2744 /* SignUpViewController.swift in Sources */,

@@ -320,6 +320,9 @@
                                                     <rect key="frame" x="16" y="7" width="343" height="30.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <state key="normal" title="Contact Support"/>
+                                                    <connections>
+                                                        <action selector="supportButtonTapped:" destination="RCf-Qi-twU" eventType="touchUpInside" id="XAL-m4-hfU"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

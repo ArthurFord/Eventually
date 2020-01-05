@@ -7,16 +7,15 @@
 //
 
 import UIKit
-
+import MessageUI
+import Firebase
 
 
 class SettingsTableViewController: UITableViewController {
     
-    
     @IBOutlet var textLabels: [UILabel]!
     
     @IBOutlet var contentViews: [UIView]!
-    
     
     var theme = ThemeManager.currentTheme() {
         didSet {
@@ -38,12 +37,9 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +50,24 @@ class SettingsTableViewController: UITableViewController {
         for view in contentViews {
             view.backgroundColor = ThemeManager.currentTheme().cellBackgroundColor
         }
+    }
+    
+    @IBAction func supportButtonTapped(_ sender: UIButton) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["eventuallyeventsapp@gmail.com"])
+            mail.setSubject("Issue with Eventually")
+            mail.setMessageBody("UserID: \(Auth.auth().currentUser!.uid) \n \n", isHTML: true)
+            present(mail, animated: true)
+        } else {
+            print("can't send mail")
+            
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,5 +91,9 @@ class SettingsTableViewController: UITableViewController {
         }
         
     }
+    
+}
+
+extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     
 }

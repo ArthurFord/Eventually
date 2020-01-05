@@ -90,7 +90,7 @@ class SignInViewController: UIViewController {
         
         let status = SecItemAdd(query as CFDictionary, nil)
         let errorToPrint = SecCopyErrorMessageString(status, nil)
-        print(errorToPrint)
+        print(errorToPrint as Any)
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 }
