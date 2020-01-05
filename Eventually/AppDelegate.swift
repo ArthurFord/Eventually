@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
        
         let options: UNAuthorizationOptions = [.alert, .badge]
         
@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("User has declined notifications")
             }
         }
+        
         
         return true
     }

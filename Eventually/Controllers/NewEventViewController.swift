@@ -22,6 +22,8 @@ class NewEventViewController: UIViewController {
     @IBOutlet weak var setReminderView: UIView!
     
     
+    var theme = ThemeManager.currentTheme()
+    
     var newEvent = Event()
     var originalEvent: Event?
     

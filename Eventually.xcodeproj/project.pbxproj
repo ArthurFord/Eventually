@@ -27,6 +27,10 @@
 		CE85634123B560D6000241C2 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85634023B560D6000241C2 /* DatePickerViewController.swift */; };
 		CE85634323B5759F000241C2 /* SetReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85634223B5759F000241C2 /* SetReminderViewController.swift */; };
 		CE89A6A823B2359D00B70F39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE89A6A723B2359C00B70F39 /* GoogleService-Info.plist */; };
+		CEBC44E723C0D0D000FEE488 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC44E623C0D0D000FEE488 /* SettingsTableViewController.swift */; };
+		CEBC44E923C20FE700FEE488 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC44E823C20FE700FEE488 /* ThemeManager.swift */; };
+		CEBC44EB23C231DF00FEE488 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC44EA23C231DF00FEE488 /* NavigationViewController.swift */; };
+		CEBC44EF23C2533300FEE488 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC44EE23C2533300FEE488 /* EditEventViewController.swift */; };
 		CEEC771523B7C3FD00D2B91B /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC771423B7C3FD00D2B91B /* WebKitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +59,10 @@
 		CE85634023B560D6000241C2 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		CE85634223B5759F000241C2 /* SetReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetReminderViewController.swift; sourceTree = "<group>"; };
 		CE89A6A723B2359C00B70F39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEBC44E623C0D0D000FEE488 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		CEBC44E823C20FE700FEE488 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		CEBC44EA23C231DF00FEE488 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		CEBC44EE23C2533300FEE488 /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		CEEC771423B7C3FD00D2B91B /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +142,9 @@
 				CE85634023B560D6000241C2 /* DatePickerViewController.swift */,
 				CE85634223B5759F000241C2 /* SetReminderViewController.swift */,
 				CEEC771423B7C3FD00D2B91B /* WebKitViewController.swift */,
+				CEBC44E623C0D0D000FEE488 /* SettingsTableViewController.swift */,
+				CEBC44EA23C231DF00FEE488 /* NavigationViewController.swift */,
+				CEBC44EE23C2533300FEE488 /* EditEventViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +155,7 @@
 				CE3E33C023A65995003C2744 /* Event.swift */,
 				CE3E33CF23A67661003C2744 /* DateExtension.swift */,
 				CE3E33D723A7A5C0003C2744 /* K.swift */,
+				CEBC44E823C20FE700FEE488 /* ThemeManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,8 +296,12 @@
 				CE3E33A723A65822003C2744 /* AppDelegate.swift in Sources */,
 				CE3E33DC23A7A896003C2744 /* SignUpViewController.swift in Sources */,
 				CE3E33A923A65822003C2744 /* SceneDelegate.swift in Sources */,
+				CEBC44E923C20FE700FEE488 /* ThemeManager.swift in Sources */,
 				CE85634123B560D6000241C2 /* DatePickerViewController.swift in Sources */,
+				CEBC44EB23C231DF00FEE488 /* NavigationViewController.swift in Sources */,
 				CE3E33D623A79F06003C2744 /* SplashViewController.swift in Sources */,
+				CEBC44EF23C2533300FEE488 /* EditEventViewController.swift in Sources */,
+				CEBC44E723C0D0D000FEE488 /* SettingsTableViewController.swift in Sources */,
 				CE3E33CD23A67027003C2744 /* EventTableViewCell.swift in Sources */,
 				CE3E33BF23A65948003C2744 /* MasterViewController.swift in Sources */,
 				CE3E33D223A69ADF003C2744 /* DetailViewController.swift in Sources */,

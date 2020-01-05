@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,13 +23,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Juq-rH-7LL">
                                 <rect key="frame" x="15" y="16" width="88.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu Oct 31, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="uIM-Lz-LFk">
                                 <rect key="frame" x="15" y="53" width="126.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-RQ-dby">
@@ -37,17 +36,15 @@
                                     <constraint firstAttribute="width" constant="42.5" id="VOE-Tb-iZW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Qcf-Ba-qqv">
                                 <rect key="frame" x="291" y="56" width="28.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.51278895547945202" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Gray#C7C7C7"/>
                         <constraints>
                             <constraint firstItem="Juq-rH-7LL" firstAttribute="leading" secondItem="76b-2i-AKM" secondAttribute="leading" constant="15" id="04t-2x-nNt"/>
                             <constraint firstItem="Juq-rH-7LL" firstAttribute="top" secondItem="76b-2i-AKM" secondAttribute="top" constant="16" id="2Ci-MS-kIb"/>
@@ -77,8 +74,14 @@
                 <outlet property="daysRemainingLabel" destination="AbP-RQ-dby" id="pn1-Ir-xUm"/>
                 <outlet property="eventDateLabel" destination="uIM-Lz-LFk" id="Oqb-5T-Ihr"/>
                 <outlet property="eventNameLabel" destination="Juq-rH-7LL" id="Avk-kW-n4T"/>
+                <outlet property="topContentView" destination="H2p-sc-9uM" id="GlJ-O5-pWj"/>
             </connections>
             <point key="canvasLocation" x="205.07246376811597" y="152.67857142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="Gray#C7C7C7">
+            <color red="0.78104299310000003" green="0.78104287390000005" blue="0.78104287390000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

@@ -15,7 +15,15 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var eventuallyLabel: UILabel!
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
     var credentials: Credentials?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return ThemeManager.currentTheme().statusBarStyle
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +33,18 @@ class SignInViewController: UIViewController {
             passwordTextField.text = credentials?.password
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        eventuallyLabel.textColor = ThemeManager.currentTheme().topTextColor
+        signInButton.tintColor = ThemeManager.currentTheme().topTextColor
+        signInButton.setTitleColor(ThemeManager.currentTheme().topTextColor, for: .normal)
+        emailTextField.textColor = ThemeManager.currentTheme().topTextColor
+        emailTextField.backgroundColor = ThemeManager.currentTheme().cellBackgroundColor
+        passwordTextField.textColor = ThemeManager.currentTheme().topTextColor
+        passwordTextField.backgroundColor = ThemeManager.currentTheme().cellBackgroundColor
+       
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

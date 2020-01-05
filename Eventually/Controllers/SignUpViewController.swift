@@ -15,9 +15,25 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password1TextField: UITextField!
     @IBOutlet weak var password2TextField: UITextField!
     
+    @IBOutlet weak var eventuallyLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        eventuallyLabel.textColor = ThemeManager.currentTheme().topTextColor
+        emailTextField.textColor = ThemeManager.currentTheme().topTextColor
+        emailTextField.backgroundColor = ThemeManager.currentTheme().cellBackgroundColor
+        password1TextField.textColor = ThemeManager.currentTheme().topTextColor
+        password1TextField.backgroundColor = ThemeManager.currentTheme().cellBackgroundColor
+        password2TextField.textColor = ThemeManager.currentTheme().topTextColor
+        password2TextField.backgroundColor = ThemeManager.currentTheme().cellBackgroundColor
+        signUpButton.tintColor = ThemeManager.currentTheme().topTextColor
+        signUpButton.setTitleColor(ThemeManager.currentTheme().topTextColor, for: .normal)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

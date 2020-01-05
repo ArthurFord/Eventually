@@ -12,6 +12,7 @@ class DatePickerViewController: UIViewController {
 
     var event: Event?
     
+    @IBOutlet weak var setDateLabel: UILabel!
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -25,17 +26,26 @@ class DatePickerViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        datePicker.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        datePicker.tintColor = ThemeManager.currentTheme().topTextColor
+        datePicker.setValue(ThemeManager.currentTheme().topTextColor, forKey: "textColor")
+        datePicker.setValue(false, forKey: "highlightsToday")
+        setDateLabel.textColor = ThemeManager.currentTheme().topTextColor
+    }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.unwindSetDateToNewViewID {
-            if segue.destination is NewEventViewController {
-                let vc = segue.destination as! NewEventViewController
+            if segue.destination is EditEventViewController {
+                let vc = segue.destination as! EditEventViewController
                 
                 vc.newEvent.end = Calendar.current.startOfDay(for: datePicker.date)
                 let dateFormatter = DateFormatter()
                 dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
-                vc.datelabel.text = dateFormatter.string(from: datePicker.date)
+                vc.setDateLabel.text = dateFormatter.string(from: datePicker.date)
             }
         }
     }

@@ -14,6 +14,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var daysRemainingLabel: UILabel!
     @IBOutlet weak var reminderDateLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var reminderLabel: UILabel!
+    @IBOutlet weak var dayRemainingTextLabel: UILabel!
+    @IBOutlet weak var notesHeaderLabel: UILabel!
     
     
     var event: Event?
@@ -39,6 +42,19 @@ class DetailViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        dateLabel.textColor = ThemeManager.currentTheme().bottomTextColor
+        daysRemainingLabel.textColor = ThemeManager.currentTheme().topTextColor
+        reminderLabel.textColor = ThemeManager.currentTheme().topTextColor
+        daysRemainingLabel.textColor = ThemeManager.currentTheme().bottomTextColor
+        reminderDateLabel.textColor = ThemeManager.currentTheme().bottomTextColor
+        dayRemainingTextLabel.textColor = ThemeManager.currentTheme().topTextColor
+        notesHeaderLabel.textColor = ThemeManager.currentTheme().topTextColor
+        notesLabel.textColor = ThemeManager.currentTheme().bottomTextColor
+        
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
            super.touchesBegan(touches, with: event)
            view.endEditing(true)
@@ -47,8 +63,8 @@ class DetailViewController: UIViewController {
 
     
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.newEventVC) as? NewEventViewController {
-            vc.originalEvent = event!
+        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.editEventViewControllerID) as? EditEventViewController {
+            vc.originalEvent = event! 
             navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -15,12 +15,20 @@ class SplashViewController: UIViewController {
     var credentials: Credentials?
     
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var eventuallyLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = .label
+        
         navigationController?.setNavigationBarHidden(true, animated: false)
+        view.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        signInButton.tintColor = ThemeManager.currentTheme().topTextColor
+        signInButton.setTitleColor(ThemeManager.currentTheme().topTextColor, for: .normal)
+        signUpButton.tintColor = ThemeManager.currentTheme().topTextColor
+        signUpButton.setTitleColor(ThemeManager.currentTheme().topTextColor, for: .normal)
+        eventuallyLabel.textColor = ThemeManager.currentTheme().topTextColor
         
         do {
             try checkCredentials()
@@ -31,6 +39,10 @@ class SplashViewController: UIViewController {
         if credentials != nil {
             moveToSignInScreen()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {

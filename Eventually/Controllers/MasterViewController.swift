@@ -15,13 +15,13 @@ class MasterViewController: UIViewController {
     
     let db = Firestore.firestore()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet weak var eventsTableView: UITableView!
     
     @IBOutlet weak var adPlaceholderView: UIView!
-    
-
-    
-
     
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -31,23 +31,28 @@ class MasterViewController: UIViewController {
         eventsTableView.dataSource = self
         registerTableViewCells()
         
-        
-        navigationController?.navigationBar.tintColor = .label
         navigationController?.setNavigationBarHidden(false, animated: false)
-        
-
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadEvents()
+        
+        setNeedsStatusBarAppearanceUpdate()
+        self.view.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        eventsTableView.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        if let indexPaths = eventsTableView.indexPathsForVisibleRows {
+        for indexPath in indexPaths {
+            let cell = eventsTableView.cellForRow(at: indexPath)
+            cell?.awakeFromNib()
+            }
+        }
     }
     
     func loadEvents() {
         let calendar = Calendar.current
         let cutOffDate = calendar.date(byAdding: .day, value: -1, to: Date())!
         let cutOffDateStored = calendar.startOfDay(for: cutOffDate)
-        
         
         db.collection(K.FStore.collectionName)
             .whereField(K.FStore.userId, isEqualTo: Auth.auth().currentUser!.uid)
@@ -99,10 +104,11 @@ class MasterViewController: UIViewController {
         
     }
     
-
+    
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.newEventVC) as? NewEventViewController {
+        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.editEventViewControllerID) as? EditEventViewController {
+            
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -111,6 +117,17 @@ class MasterViewController: UIViewController {
         
     }
     
+    @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
+        if let vc = storyboard?.instantiateViewController(identifier: K.VcId.settingsViewControllerID) as? SettingsTableViewController {
+            
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        }
+    
+    
+    
+    
 }
 //MARK: - TableView Delegate
 
@@ -118,13 +135,14 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
     func registerTableViewCells() {
         let tableViewCell = UINib(nibName: K.table.nibName, bundle: nil)
         self.eventsTableView.register(tableViewCell, forCellReuseIdentifier: K.table.reuseId)
+        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfEvents.count
     }
-
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -178,3 +196,4 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
