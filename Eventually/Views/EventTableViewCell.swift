@@ -25,7 +25,7 @@ class EventTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellContentView.layer.cornerRadius = cellContentView.frame.height / 4
+        //cellContentView.layer.cornerRadius = cellContentView.frame.height / 4
         applyThemeToCells()
     }
 

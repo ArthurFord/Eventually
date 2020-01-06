@@ -8,10 +8,11 @@
 
 import UIKit
 import Firebase
+import Foundation
 
 class MasterViewController: UIViewController {
     
-    var arrayOfEvents: [Event] = []
+    var arrayOfEvents = [[Event]]()
     
     let db = Firestore.firestore()
     
@@ -20,8 +21,6 @@ class MasterViewController: UIViewController {
     }
     
     @IBOutlet weak var eventsTableView: UITableView!
-    
-    @IBOutlet weak var adPlaceholderView: UIView!
     
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -58,7 +57,7 @@ class MasterViewController: UIViewController {
             .whereField(K.FStore.userId, isEqualTo: Auth.auth().currentUser!.uid)
             .order(by: K.FStore.end)
             .addSnapshotListener { (querySnapshot, error) in
-                self.arrayOfEvents = []
+                self.arrayOfEvents.removeAll()
                 if let err = error {
                     print("error getting data \(err)")
                 } else {
@@ -91,7 +90,9 @@ class MasterViewController: UIViewController {
                             
                             let startOfDayEndDate = calendar.startOfDay(for: newEvent.end)
                             if startOfDayEndDate > cutOffDateStored {
-                                self.arrayOfEvents.append(newEvent)
+                                var newEventArray:[Event] = []
+                                newEventArray.append(newEvent)
+                                self.arrayOfEvents.append(newEventArray)
                             }
                             
                             DispatchQueue.main.async {
@@ -137,23 +138,23 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
         self.eventsTableView.register(tableViewCell, forCellReuseIdentifier: K.table.reuseId)
         
     }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return arrayOfEvents.count
     }
     
-    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.table.reuseId, for: indexPath) as! EventTableViewCell
         
-        cell.eventNameLabel.text = arrayOfEvents[indexPath.row].name
+        cell.eventNameLabel.text = arrayOfEvents[indexPath.section][indexPath.row].name
         
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate(K.longDate)
-        cell.eventDateLabel.text = dateFormatter.string(from: arrayOfEvents[indexPath.row].end)
-        let daysRemaining = arrayOfEvents[indexPath.row].end.daysToEvent.day!
+        cell.eventDateLabel.text = dateFormatter.string(from: arrayOfEvents[indexPath.section][indexPath.row].end)
+        let daysRemaining = arrayOfEvents[indexPath.section][indexPath.row].end.daysToEvent.day!
         cell.daysRemainingLabel.text = String(daysRemaining)
         if daysRemaining == 1 {
             cell.daysLabel.text = "day"
@@ -166,8 +167,8 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let vc = storyboard?.instantiateViewController(identifier: K.VcId.detailViewVC) as? DetailViewController {
-            vc.title = arrayOfEvents[indexPath.row].name
-            vc.event = arrayOfEvents[indexPath.row]
+            vc.title = arrayOfEvents[indexPath.section][indexPath.row].name
+            vc.event = arrayOfEvents[indexPath.section][indexPath.row]
             
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -176,9 +177,9 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [self.arrayOfEvents[indexPath.row].name])
+        self.notificationCenter.removePendingNotificationRequests(withIdentifiers: [self.arrayOfEvents[indexPath.section][indexPath.row].name])
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, actionPerformed) in
-            self.db.collection(K.FStore.collectionName).document("\(Auth.auth().currentUser!.uid)\(self.arrayOfEvents[indexPath.row].name)").delete() { err in
+            self.db.collection(K.FStore.collectionName).document("\(Auth.auth().currentUser!.uid)\(self.arrayOfEvents[indexPath.section][indexPath.row].name)").delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
@@ -190,8 +191,7 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
-        
-        
+
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
