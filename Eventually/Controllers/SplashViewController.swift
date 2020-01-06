@@ -18,10 +18,13 @@ class SplashViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var eventuallyLabel: UILabel!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return ThemeManager.currentTheme().statusBarStyle
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setNeedsStatusBarAppearanceUpdate()
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = ThemeManager.currentTheme().backgroundColor
         signInButton.tintColor = ThemeManager.currentTheme().topTextColor

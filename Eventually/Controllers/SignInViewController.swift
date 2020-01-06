@@ -21,9 +21,7 @@ class SignInViewController: UIViewController {
     
     var credentials: Credentials?
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return ThemeManager.currentTheme().statusBarStyle
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

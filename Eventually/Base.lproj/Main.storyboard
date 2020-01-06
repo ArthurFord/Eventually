@@ -343,10 +343,9 @@
         <scene sceneID="ozq-0U-IgT">
             <objects>
                 <tableViewController storyboardIdentifier="editEventViewController" id="RDM-iW-ygU" customClass="EditEventViewController" customModule="Eventually" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-4F-B94">
+                    <tableView key="view" clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-4F-B94">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xY0-KI-sGf"/>
                         <sections>
                             <tableViewSection id="c7O-C9-0Gr">
@@ -377,7 +376,7 @@
                             <tableViewSection id="wBs-Eb-4Uc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="HYA-ne-WSw" style="IBUITableViewCellStyleDefault" id="a6V-yA-WQx">
-                                        <rect key="frame" x="16" y="81" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="98" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a6V-yA-WQx" id="WVd-Tf-ZCn">
                                             <rect key="frame" x="0.0" y="0.0" width="317" height="43.5"/>
@@ -394,7 +393,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Qrt-Vq-eNc" style="IBUITableViewCellStyleDefault" id="Q96-jL-0Dd">
-                                        <rect key="frame" x="16" y="124.5" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="141.5" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q96-jL-0Dd" id="TY8-Ed-W6Y">
                                             <rect key="frame" x="0.0" y="0.0" width="317" height="43.5"/>
@@ -411,7 +410,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7An-c1-2rb">
-                                        <rect key="frame" x="16" y="168" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="185" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7An-c1-2rb" id="K2o-kV-9Lh">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -446,7 +445,7 @@
                             <tableViewSection id="SKL-vQ-eN4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uqu-1E-iZS">
-                                        <rect key="frame" x="16" y="230.5" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="264.5" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uqu-1E-iZS" id="S7V-BK-aTi">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -474,7 +473,7 @@
                             <outlet property="delegate" destination="RDM-iW-ygU" id="6eQ-jP-7cD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cwr-RY-PcL">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="cwr-RY-PcL">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FE7-49-E5O">
                             <connections>
                                 <segue destination="kUd-yJ-Qve" kind="unwind" identifier="unwindToRoot" unwindAction="unwindToRootViewControllerWithSegue:" id="g4z-I0-hjU"/>
@@ -513,13 +512,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="9C7-L1-tgX">
-                                <rect key="frame" x="20" y="96" width="335" height="21"/>
+                                <rect key="frame" x="20" y="44" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="vV5-3d-khG">
-                                <rect key="frame" x="0.0" y="125" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="73" width="375" height="216"/>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -559,13 +558,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="KLt-ce-ywk">
-                                <rect key="frame" x="20" y="96" width="335" height="27"/>
+                                <rect key="frame" x="20" y="44" width="335" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iah-5c-Spl">
-                                <rect key="frame" x="0.0" y="131" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="79" width="375" height="216"/>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -852,7 +851,7 @@
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rfq-n0-vPp"/>
+        <segue reference="sis-oO-I7O"/>
         <segue reference="GzU-rS-LAX"/>
     </inferredMetricsTieBreakers>
 </document>

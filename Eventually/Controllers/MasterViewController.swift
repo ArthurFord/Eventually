@@ -16,10 +16,6 @@ class MasterViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     @IBOutlet weak var eventsTableView: UITableView!
     
     let notificationCenter = UNUserNotificationCenter.current()
@@ -37,13 +33,12 @@ class MasterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         loadEvents()
         
-        setNeedsStatusBarAppearanceUpdate()
         self.view.backgroundColor = ThemeManager.currentTheme().backgroundColor
         eventsTableView.backgroundColor = ThemeManager.currentTheme().backgroundColor
         if let indexPaths = eventsTableView.indexPathsForVisibleRows {
-        for indexPath in indexPaths {
-            let cell = eventsTableView.cellForRow(at: indexPath)
-            cell?.awakeFromNib()
+            for indexPath in indexPaths {
+                let cell = eventsTableView.cellForRow(at: indexPath)
+                cell?.awakeFromNib()
             }
         }
     }
@@ -102,10 +97,7 @@ class MasterViewController: UIViewController {
                     }
                 }
         }
-        
     }
-    
-    
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         if let vc = storyboard?.instantiateViewController(identifier: K.VcId.editEventViewControllerID) as? EditEventViewController {
@@ -121,10 +113,10 @@ class MasterViewController: UIViewController {
     @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
         if let vc = storyboard?.instantiateViewController(identifier: K.VcId.settingsViewControllerID) as? SettingsTableViewController {
             
-                navigationController?.pushViewController(vc, animated: true)
-            }
-            
+            navigationController?.pushViewController(vc, animated: true)
         }
+        
+    }
     
     
     
@@ -191,7 +183,7 @@ extension MasterViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
-
+        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
